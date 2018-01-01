@@ -1,0 +1,379 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 48;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		931411AD1FFA6DCB000B6F17 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 931411AC1FFA6DCB000B6F17 /* AppDelegate.m */; };
+		931411B51FFA6DCB000B6F17 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 931411B41FFA6DCB000B6F17 /* Assets.xcassets */; };
+		931411BB1FFA6DCB000B6F17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 931411BA1FFA6DCB000B6F17 /* main.m */; };
+		931411C51FFA6E2F000B6F17 /* OgreView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 931411C11FFA6E2F000B6F17 /* OgreView.mm */; };
+		931411C61FFA6E2F000B6F17 /* OgreApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 931411C31FFA6E2F000B6F17 /* OgreApplication.cpp */; };
+		931411CB1FFA6EBC000B6F17 /* libOgreGLSupportStatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411C81FFA6EBC000B6F17 /* libOgreGLSupportStatic.a */; };
+		931411CC1FFA6EBC000B6F17 /* libOgreMainStatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411C91FFA6EBC000B6F17 /* libOgreMainStatic.a */; };
+		931411CD1FFA6EBC000B6F17 /* libRenderSystem_GLES2Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411CA1FFA6EBC000B6F17 /* libRenderSystem_GLES2Static.a */; };
+		931411CF1FFA6F3A000B6F17 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 931411CE1FFA6F3A000B6F17 /* ViewController.mm */; };
+		931411D31FFA6FF8000B6F17 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 931411D21FFA6FF8000B6F17 /* README.md */; };
+		931411D91FFA703D000B6F17 /* resources.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 931411D51FFA703D000B6F17 /* resources.cfg */; };
+		931411DA1FFA703D000B6F17 /* plugins.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 931411D61FFA703D000B6F17 /* plugins.cfg */; };
+		931411DB1FFA703D000B6F17 /* ogre.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 931411D71FFA703D000B6F17 /* ogre.cfg */; };
+		931411DC1FFA703D000B6F17 /* media in Resources */ = {isa = PBXBuildFile; fileRef = 931411D81FFA703D000B6F17 /* media */; };
+		931411DE1FFA7259000B6F17 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 931411DD1FFA7259000B6F17 /* LICENSE */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		931411A81FFA6DCB000B6F17 /* ogre-ios-helloworld.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "ogre-ios-helloworld.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		931411AB1FFA6DCB000B6F17 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
+		931411AC1FFA6DCB000B6F17 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
+		931411AE1FFA6DCB000B6F17 /* ViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
+		931411B41FFA6DCB000B6F17 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		931411B91FFA6DCB000B6F17 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		931411BA1FFA6DCB000B6F17 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
+		931411C11FFA6E2F000B6F17 /* OgreView.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = OgreView.mm; sourceTree = "<group>"; };
+		931411C21FFA6E2F000B6F17 /* OgreApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreApplication.h; sourceTree = "<group>"; };
+		931411C31FFA6E2F000B6F17 /* OgreApplication.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OgreApplication.cpp; sourceTree = "<group>"; };
+		931411C41FFA6E2F000B6F17 /* OgreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreView.h; sourceTree = "<group>"; };
+		931411C81FFA6EBC000B6F17 /* libOgreGLSupportStatic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOgreGLSupportStatic.a; path = "../../ogre/ogre-1.10.11/build/lib/iphonesimulator/Debug/libOgreGLSupportStatic.a"; sourceTree = "<group>"; };
+		931411C91FFA6EBC000B6F17 /* libOgreMainStatic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOgreMainStatic.a; path = "../../ogre/ogre-1.10.11/build/lib/iphonesimulator/Debug/libOgreMainStatic.a"; sourceTree = "<group>"; };
+		931411CA1FFA6EBC000B6F17 /* libRenderSystem_GLES2Static.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRenderSystem_GLES2Static.a; path = "../../ogre/ogre-1.10.11/build/lib/iphonesimulator/Debug/libRenderSystem_GLES2Static.a"; sourceTree = "<group>"; };
+		931411CE1FFA6F3A000B6F17 /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
+		931411D21FFA6FF8000B6F17 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
+		931411D51FFA703D000B6F17 /* resources.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = resources.cfg; path = "ogre-ios-helloworld/resources/resources.cfg"; sourceTree = SOURCE_ROOT; };
+		931411D61FFA703D000B6F17 /* plugins.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = plugins.cfg; path = "ogre-ios-helloworld/resources/plugins.cfg"; sourceTree = SOURCE_ROOT; };
+		931411D71FFA703D000B6F17 /* ogre.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ogre.cfg; path = "ogre-ios-helloworld/resources/ogre.cfg"; sourceTree = SOURCE_ROOT; };
+		931411D81FFA703D000B6F17 /* media */ = {isa = PBXFileReference; lastKnownFileType = folder; name = media; path = "ogre-ios-helloworld/resources/media"; sourceTree = SOURCE_ROOT; };
+		931411DD1FFA7259000B6F17 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = "ogre-ios-helloworld/LICENSE"; sourceTree = SOURCE_ROOT; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		931411A51FFA6DCB000B6F17 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				931411CB1FFA6EBC000B6F17 /* libOgreGLSupportStatic.a in Frameworks */,
+				931411CC1FFA6EBC000B6F17 /* libOgreMainStatic.a in Frameworks */,
+				931411CD1FFA6EBC000B6F17 /* libRenderSystem_GLES2Static.a in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		9314119F1FFA6DCB000B6F17 = {
+			isa = PBXGroup;
+			children = (
+				931411AA1FFA6DCB000B6F17 /* ogre-ios-helloworld */,
+				931411A91FFA6DCB000B6F17 /* Products */,
+				931411C71FFA6EBC000B6F17 /* Frameworks */,
+			);
+			sourceTree = "<group>";
+		};
+		931411A91FFA6DCB000B6F17 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				931411A81FFA6DCB000B6F17 /* ogre-ios-helloworld.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		931411AA1FFA6DCB000B6F17 /* ogre-ios-helloworld */ = {
+			isa = PBXGroup;
+			children = (
+				931411DD1FFA7259000B6F17 /* LICENSE */,
+				931411D21FFA6FF8000B6F17 /* README.md */,
+				931411D41FFA701E000B6F17 /* resources */,
+				931411AE1FFA6DCB000B6F17 /* ViewController.h */,
+				931411CE1FFA6F3A000B6F17 /* ViewController.mm */,
+				931411C31FFA6E2F000B6F17 /* OgreApplication.cpp */,
+				931411C21FFA6E2F000B6F17 /* OgreApplication.h */,
+				931411C41FFA6E2F000B6F17 /* OgreView.h */,
+				931411C11FFA6E2F000B6F17 /* OgreView.mm */,
+				931411AB1FFA6DCB000B6F17 /* AppDelegate.h */,
+				931411AC1FFA6DCB000B6F17 /* AppDelegate.m */,
+				931411B41FFA6DCB000B6F17 /* Assets.xcassets */,
+				931411B91FFA6DCB000B6F17 /* Info.plist */,
+				931411BA1FFA6DCB000B6F17 /* main.m */,
+			);
+			path = "ogre-ios-helloworld";
+			sourceTree = "<group>";
+		};
+		931411C71FFA6EBC000B6F17 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				931411C81FFA6EBC000B6F17 /* libOgreGLSupportStatic.a */,
+				931411C91FFA6EBC000B6F17 /* libOgreMainStatic.a */,
+				931411CA1FFA6EBC000B6F17 /* libRenderSystem_GLES2Static.a */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		931411D41FFA701E000B6F17 /* resources */ = {
+			isa = PBXGroup;
+			children = (
+				931411D81FFA703D000B6F17 /* media */,
+				931411D71FFA703D000B6F17 /* ogre.cfg */,
+				931411D61FFA703D000B6F17 /* plugins.cfg */,
+				931411D51FFA703D000B6F17 /* resources.cfg */,
+			);
+			name = resources;
+			path = "New Group";
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		931411A71FFA6DCB000B6F17 /* ogre-ios-helloworld */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 931411BE1FFA6DCB000B6F17 /* Build configuration list for PBXNativeTarget "ogre-ios-helloworld" */;
+			buildPhases = (
+				931411A41FFA6DCB000B6F17 /* Sources */,
+				931411A51FFA6DCB000B6F17 /* Frameworks */,
+				931411A61FFA6DCB000B6F17 /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "ogre-ios-helloworld";
+			productName = "ogre-ios-helloworld";
+			productReference = 931411A81FFA6DCB000B6F17 /* ogre-ios-helloworld.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		931411A01FFA6DCB000B6F17 /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastUpgradeCheck = 0920;
+				ORGANIZATIONNAME = aphcoder;
+				TargetAttributes = {
+					931411A71FFA6DCB000B6F17 = {
+						CreatedOnToolsVersion = 9.2;
+						ProvisioningStyle = Automatic;
+					};
+				};
+			};
+			buildConfigurationList = 931411A31FFA6DCB000B6F17 /* Build configuration list for PBXProject "ogre-ios-helloworld" */;
+			compatibilityVersion = "Xcode 8.0";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = 9314119F1FFA6DCB000B6F17;
+			productRefGroup = 931411A91FFA6DCB000B6F17 /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				931411A71FFA6DCB000B6F17 /* ogre-ios-helloworld */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		931411A61FFA6DCB000B6F17 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				931411DB1FFA703D000B6F17 /* ogre.cfg in Resources */,
+				931411D31FFA6FF8000B6F17 /* README.md in Resources */,
+				931411B51FFA6DCB000B6F17 /* Assets.xcassets in Resources */,
+				931411DE1FFA7259000B6F17 /* LICENSE in Resources */,
+				931411DC1FFA703D000B6F17 /* media in Resources */,
+				931411D91FFA703D000B6F17 /* resources.cfg in Resources */,
+				931411DA1FFA703D000B6F17 /* plugins.cfg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		931411A41FFA6DCB000B6F17 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				931411BB1FFA6DCB000B6F17 /* main.m in Sources */,
+				931411C61FFA6E2F000B6F17 /* OgreApplication.cpp in Sources */,
+				931411CF1FFA6F3A000B6F17 /* ViewController.mm in Sources */,
+				931411AD1FFA6DCB000B6F17 /* AppDelegate.m in Sources */,
+				931411C51FFA6E2F000B6F17 /* OgreView.mm in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin XCBuildConfiguration section */
+		931411BC1FFA6DCB000B6F17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+			};
+			name = Debug;
+		};
+		931411BD1FFA6DCB000B6F17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 11.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				SDKROOT = iphoneos;
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		931411BF1FFA6DCB000B6F17 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"$(OGRE_SDK_ROOT)/OgreMain/include",
+					"$(OGRE_SDK_ROOT)/build/include",
+					"$(OGRE_SDK_ROOT)/OgreMain/include/iOS",
+				);
+				INFOPLIST_FILE = "ogre-ios-helloworld/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(OGRE_SDK_ROOT)/build/lib/iphonesimulator/Debug";
+				OGRE_SDK_ROOT = "/Users/aphcoder/ogre/ogre-1.10.11";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aphcoder.ogre-ios-helloworld";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		931411C01FFA6DCB000B6F17 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				HEADER_SEARCH_PATHS = (
+					"$(OGRE_SDK_ROOT)/OgreMain/include",
+					"$(OGRE_SDK_ROOT)/build/include",
+					"$(OGRE_SDK_ROOT)/OgreMain/include/iOS",
+				);
+				INFOPLIST_FILE = "ogre-ios-helloworld/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LIBRARY_SEARCH_PATHS = "$(OGRE_SDK_ROOT)/build/lib/iphonesimulator/Debug";
+				OGRE_SDK_ROOT = "/Users/aphcoder/ogre/ogre-1.10.11";
+				PRODUCT_BUNDLE_IDENTIFIER = "com.aphcoder.ogre-ios-helloworld";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		931411A31FFA6DCB000B6F17 /* Build configuration list for PBXProject "ogre-ios-helloworld" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				931411BC1FFA6DCB000B6F17 /* Debug */,
+				931411BD1FFA6DCB000B6F17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		931411BE1FFA6DCB000B6F17 /* Build configuration list for PBXNativeTarget "ogre-ios-helloworld" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				931411BF1FFA6DCB000B6F17 /* Debug */,
+				931411C01FFA6DCB000B6F17 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = 931411A01FFA6DCB000B6F17 /* Project object */;
+}
