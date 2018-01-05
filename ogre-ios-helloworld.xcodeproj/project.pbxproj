@@ -12,16 +12,22 @@
 		931411BB1FFA6DCB000B6F17 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 931411BA1FFA6DCB000B6F17 /* main.m */; };
 		931411C51FFA6E2F000B6F17 /* OgreView.mm in Sources */ = {isa = PBXBuildFile; fileRef = 931411C11FFA6E2F000B6F17 /* OgreView.mm */; };
 		931411C61FFA6E2F000B6F17 /* OgreApplication.cpp in Sources */ = {isa = PBXBuildFile; fileRef = 931411C31FFA6E2F000B6F17 /* OgreApplication.cpp */; };
-		931411CB1FFA6EBC000B6F17 /* libOgreGLSupportStatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411C81FFA6EBC000B6F17 /* libOgreGLSupportStatic.a */; };
-		931411CC1FFA6EBC000B6F17 /* libOgreMainStatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411C91FFA6EBC000B6F17 /* libOgreMainStatic.a */; };
-		931411CD1FFA6EBC000B6F17 /* libRenderSystem_GLES2Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411CA1FFA6EBC000B6F17 /* libRenderSystem_GLES2Static.a */; };
 		931411CF1FFA6F3A000B6F17 /* ViewController.mm in Sources */ = {isa = PBXBuildFile; fileRef = 931411CE1FFA6F3A000B6F17 /* ViewController.mm */; };
 		931411D31FFA6FF8000B6F17 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 931411D21FFA6FF8000B6F17 /* README.md */; };
-		931411D91FFA703D000B6F17 /* resources.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 931411D51FFA703D000B6F17 /* resources.cfg */; };
-		931411DA1FFA703D000B6F17 /* plugins.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 931411D61FFA703D000B6F17 /* plugins.cfg */; };
-		931411DB1FFA703D000B6F17 /* ogre.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 931411D71FFA703D000B6F17 /* ogre.cfg */; };
-		931411DC1FFA703D000B6F17 /* media in Resources */ = {isa = PBXBuildFile; fileRef = 931411D81FFA703D000B6F17 /* media */; };
-		931411DE1FFA7259000B6F17 /* LICENSE in Resources */ = {isa = PBXBuildFile; fileRef = 931411DD1FFA7259000B6F17 /* LICENSE */; };
+		931411E21FFB53B5000B6F17 /* libOgreGLSupportStatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411DF1FFB53B5000B6F17 /* libOgreGLSupportStatic.a */; };
+		931411E31FFB53B5000B6F17 /* libOgreMainStatic.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411E01FFB53B5000B6F17 /* libOgreMainStatic.a */; };
+		931411E71FFB5447000B6F17 /* libzzip.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411E51FFB5447000B6F17 /* libzzip.a */; };
+		931411E81FFB5447000B6F17 /* libfreetyped.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411E61FFB5447000B6F17 /* libfreetyped.a */; };
+		931411EA1FFB5C65000B6F17 /* libz.1.2.11.tbd in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411E91FFB5C65000B6F17 /* libz.1.2.11.tbd */; };
+		931411EB1FFB637C000B6F17 /* libRenderSystem_GLES2Static.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411E11FFB53B5000B6F17 /* libRenderSystem_GLES2Static.a */; };
+		931411EF1FFB6709000B6F17 /* OgreBitesStatic in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411EE1FFB6709000B6F17 /* OgreBitesStatic */; };
+		931411F11FFB6886000B6F17 /* Plugin_BSPSceneManagerStatic in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411F01FFB6886000B6F17 /* Plugin_BSPSceneManagerStatic */; };
+		931411F31FFB68AE000B6F17 /* Plugin_ParticleFXStatic in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411F21FFB68AE000B6F17 /* Plugin_ParticleFXStatic */; };
+		931411F51FFB68CE000B6F17 /* Plugin_OctreeSceneManagerStatic in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411F41FFB68CD000B6F17 /* Plugin_OctreeSceneManagerStatic */; };
+		931411F61FFC4A62000B6F17 /* ogre.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 931411D71FFA703D000B6F17 /* ogre.cfg */; };
+		931411F71FFC4A62000B6F17 /* resources.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 931411D51FFA703D000B6F17 /* resources.cfg */; };
+		931411FB1FFF5D8A000B6F17 /* OgreRTShaderSystemStatic in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411FA1FFF5D89000B6F17 /* OgreRTShaderSystemStatic */; };
+		931411FC1FFF5E45000B6F17 /* media in Resources */ = {isa = PBXBuildFile; fileRef = 931411D81FFA703D000B6F17 /* media */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -36,9 +42,6 @@
 		931411C21FFA6E2F000B6F17 /* OgreApplication.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreApplication.h; sourceTree = "<group>"; };
 		931411C31FFA6E2F000B6F17 /* OgreApplication.cpp */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.cpp; path = OgreApplication.cpp; sourceTree = "<group>"; };
 		931411C41FFA6E2F000B6F17 /* OgreView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = OgreView.h; sourceTree = "<group>"; };
-		931411C81FFA6EBC000B6F17 /* libOgreGLSupportStatic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOgreGLSupportStatic.a; path = "../../ogre/ogre-1.10.11/build/lib/iphonesimulator/Debug/libOgreGLSupportStatic.a"; sourceTree = "<group>"; };
-		931411C91FFA6EBC000B6F17 /* libOgreMainStatic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOgreMainStatic.a; path = "../../ogre/ogre-1.10.11/build/lib/iphonesimulator/Debug/libOgreMainStatic.a"; sourceTree = "<group>"; };
-		931411CA1FFA6EBC000B6F17 /* libRenderSystem_GLES2Static.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRenderSystem_GLES2Static.a; path = "../../ogre/ogre-1.10.11/build/lib/iphonesimulator/Debug/libRenderSystem_GLES2Static.a"; sourceTree = "<group>"; };
 		931411CE1FFA6F3A000B6F17 /* ViewController.mm */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.cpp.objcpp; path = ViewController.mm; sourceTree = "<group>"; };
 		931411D21FFA6FF8000B6F17 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = SOURCE_ROOT; };
 		931411D51FFA703D000B6F17 /* resources.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = resources.cfg; path = "ogre-ios-helloworld/resources/resources.cfg"; sourceTree = SOURCE_ROOT; };
@@ -46,6 +49,18 @@
 		931411D71FFA703D000B6F17 /* ogre.cfg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = ogre.cfg; path = "ogre-ios-helloworld/resources/ogre.cfg"; sourceTree = SOURCE_ROOT; };
 		931411D81FFA703D000B6F17 /* media */ = {isa = PBXFileReference; lastKnownFileType = folder; name = media; path = "ogre-ios-helloworld/resources/media"; sourceTree = SOURCE_ROOT; };
 		931411DD1FFA7259000B6F17 /* LICENSE */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; name = LICENSE; path = "ogre-ios-helloworld/LICENSE"; sourceTree = SOURCE_ROOT; };
+		931411DF1FFB53B5000B6F17 /* libOgreGLSupportStatic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOgreGLSupportStatic.a; path = "../../ogre/ogre-1.10.11/lib/iphonesimulator/Debug/libOgreGLSupportStatic.a"; sourceTree = "<group>"; };
+		931411E01FFB53B5000B6F17 /* libOgreMainStatic.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libOgreMainStatic.a; path = "../../ogre/ogre-1.10.11/lib/iphonesimulator/Debug/libOgreMainStatic.a"; sourceTree = "<group>"; };
+		931411E11FFB53B5000B6F17 /* libRenderSystem_GLES2Static.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libRenderSystem_GLES2Static.a; path = "../../ogre/ogre-1.10.11/lib/iphonesimulator/Debug/libRenderSystem_GLES2Static.a"; sourceTree = "<group>"; };
+		931411E51FFB5447000B6F17 /* libzzip.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libzzip.a; path = "../../ogre/ogre-1.10.11/ogredeps/lib/libzzip.a"; sourceTree = "<group>"; };
+		931411E61FFB5447000B6F17 /* libfreetyped.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = libfreetyped.a; path = "../../ogre/ogre-1.10.11/ogredeps/lib/libfreetyped.a"; sourceTree = "<group>"; };
+		931411E91FFB5C65000B6F17 /* libz.1.2.11.tbd */ = {isa = PBXFileReference; lastKnownFileType = "sourcecode.text-based-dylib-definition"; name = libz.1.2.11.tbd; path = usr/lib/libz.1.2.11.tbd; sourceTree = SDKROOT; };
+		931411EC1FFB64C7000B6F17 /* OgreBitesStatic.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = OgreBitesStatic.framework; path = "../../ogre/ogre-1.10.11/lib/iphonesimulator/Debug/OgreBitesStatic.framework"; sourceTree = "<group>"; };
+		931411EE1FFB6709000B6F17 /* OgreBitesStatic */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = OgreBitesStatic; path = "../../ogre/ogre-1.10.11/lib/iphonesimulator/Debug/OgreBitesStatic.framework/OgreBitesStatic"; sourceTree = "<group>"; };
+		931411F01FFB6886000B6F17 /* Plugin_BSPSceneManagerStatic */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = Plugin_BSPSceneManagerStatic; path = "../../ogre/ogre-1.10.11/lib/iphonesimulator/Debug/Plugin_BSPSceneManagerStatic.framework/Plugin_BSPSceneManagerStatic"; sourceTree = "<group>"; };
+		931411F21FFB68AE000B6F17 /* Plugin_ParticleFXStatic */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = Plugin_ParticleFXStatic; path = "../../ogre/ogre-1.10.11/lib/iphonesimulator/Debug/Plugin_ParticleFXStatic.framework/Plugin_ParticleFXStatic"; sourceTree = "<group>"; };
+		931411F41FFB68CD000B6F17 /* Plugin_OctreeSceneManagerStatic */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = Plugin_OctreeSceneManagerStatic; path = "../../ogre/ogre-1.10.11/lib/iphonesimulator/Debug/Plugin_OctreeSceneManagerStatic.framework/Plugin_OctreeSceneManagerStatic"; sourceTree = "<group>"; };
+		931411FA1FFF5D89000B6F17 /* OgreRTShaderSystemStatic */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = OgreRTShaderSystemStatic; path = "../../ogre/ogre-1.10.11/lib/iphonesimulator/Debug/OgreRTShaderSystemStatic.framework/OgreRTShaderSystemStatic"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -53,9 +68,17 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				931411CB1FFA6EBC000B6F17 /* libOgreGLSupportStatic.a in Frameworks */,
-				931411CC1FFA6EBC000B6F17 /* libOgreMainStatic.a in Frameworks */,
-				931411CD1FFA6EBC000B6F17 /* libRenderSystem_GLES2Static.a in Frameworks */,
+				931411FB1FFF5D8A000B6F17 /* OgreRTShaderSystemStatic in Frameworks */,
+				931411F51FFB68CE000B6F17 /* Plugin_OctreeSceneManagerStatic in Frameworks */,
+				931411F31FFB68AE000B6F17 /* Plugin_ParticleFXStatic in Frameworks */,
+				931411F11FFB6886000B6F17 /* Plugin_BSPSceneManagerStatic in Frameworks */,
+				931411EF1FFB6709000B6F17 /* OgreBitesStatic in Frameworks */,
+				931411EB1FFB637C000B6F17 /* libRenderSystem_GLES2Static.a in Frameworks */,
+				931411EA1FFB5C65000B6F17 /* libz.1.2.11.tbd in Frameworks */,
+				931411E71FFB5447000B6F17 /* libzzip.a in Frameworks */,
+				931411E81FFB5447000B6F17 /* libfreetyped.a in Frameworks */,
+				931411E21FFB53B5000B6F17 /* libOgreGLSupportStatic.a in Frameworks */,
+				931411E31FFB53B5000B6F17 /* libOgreMainStatic.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -103,9 +126,18 @@
 		931411C71FFA6EBC000B6F17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
-				931411C81FFA6EBC000B6F17 /* libOgreGLSupportStatic.a */,
-				931411C91FFA6EBC000B6F17 /* libOgreMainStatic.a */,
-				931411CA1FFA6EBC000B6F17 /* libRenderSystem_GLES2Static.a */,
+				931411FA1FFF5D89000B6F17 /* OgreRTShaderSystemStatic */,
+				931411F41FFB68CD000B6F17 /* Plugin_OctreeSceneManagerStatic */,
+				931411F21FFB68AE000B6F17 /* Plugin_ParticleFXStatic */,
+				931411F01FFB6886000B6F17 /* Plugin_BSPSceneManagerStatic */,
+				931411EE1FFB6709000B6F17 /* OgreBitesStatic */,
+				931411EC1FFB64C7000B6F17 /* OgreBitesStatic.framework */,
+				931411E91FFB5C65000B6F17 /* libz.1.2.11.tbd */,
+				931411E61FFB5447000B6F17 /* libfreetyped.a */,
+				931411E51FFB5447000B6F17 /* libzzip.a */,
+				931411DF1FFB53B5000B6F17 /* libOgreGLSupportStatic.a */,
+				931411E01FFB53B5000B6F17 /* libOgreMainStatic.a */,
+				931411E11FFB53B5000B6F17 /* libRenderSystem_GLES2Static.a */,
 			);
 			name = Frameworks;
 			sourceTree = "<group>";
@@ -180,13 +212,11 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				931411DB1FFA703D000B6F17 /* ogre.cfg in Resources */,
+				931411FC1FFF5E45000B6F17 /* media in Resources */,
+				931411F61FFC4A62000B6F17 /* ogre.cfg in Resources */,
+				931411F71FFC4A62000B6F17 /* resources.cfg in Resources */,
 				931411D31FFA6FF8000B6F17 /* README.md in Resources */,
 				931411B51FFA6DCB000B6F17 /* Assets.xcassets in Resources */,
-				931411DE1FFA7259000B6F17 /* LICENSE in Resources */,
-				931411DC1FFA703D000B6F17 /* media in Resources */,
-				931411D91FFA703D000B6F17 /* resources.cfg in Resources */,
-				931411DA1FFA703D000B6F17 /* plugins.cfg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -319,12 +349,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = (
 					"$(OGRE_SDK_ROOT)/OgreMain/include",
-					"$(OGRE_SDK_ROOT)/build/include",
+					"$(OGRE_SDK_ROOT)/include",
 					"$(OGRE_SDK_ROOT)/OgreMain/include/iOS",
+					"$(OGRE_SDK_ROOT)/Components/Bites/include",
+					"$(OGRE_SDK_ROOT)/Components/RTShaderSystem/include",
 				);
 				INFOPLIST_FILE = "ogre-ios-helloworld/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(OGRE_SDK_ROOT)/build/lib/iphonesimulator/Debug";
+				LIBRARY_SEARCH_PATHS = (
+					"$(OGRE_SDK_ROOT)/lib/iphonesimulator/Debug",
+					"$(OGRE_SDK_ROOT)/ogredeps/lib/",
+				);
 				OGRE_SDK_ROOT = "/Users/aphcoder/ogre/ogre-1.10.11";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aphcoder.ogre-ios-helloworld";
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -339,12 +374,17 @@
 				CODE_SIGN_STYLE = Automatic;
 				HEADER_SEARCH_PATHS = (
 					"$(OGRE_SDK_ROOT)/OgreMain/include",
-					"$(OGRE_SDK_ROOT)/build/include",
+					"$(OGRE_SDK_ROOT)/include",
 					"$(OGRE_SDK_ROOT)/OgreMain/include/iOS",
+					"$(OGRE_SDK_ROOT)/Components/Bites/include",
+					"$(OGRE_SDK_ROOT)/Components/RTShaderSystem/include",
 				);
 				INFOPLIST_FILE = "ogre-ios-helloworld/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
-				LIBRARY_SEARCH_PATHS = "$(OGRE_SDK_ROOT)/build/lib/iphonesimulator/Debug";
+				LIBRARY_SEARCH_PATHS = (
+					"$(OGRE_SDK_ROOT)/lib/iphonesimulator/Debug",
+					"$(OGRE_SDK_ROOT)/ogredeps/lib/",
+				);
 				OGRE_SDK_ROOT = "/Users/aphcoder/ogre/ogre-1.10.11";
 				PRODUCT_BUNDLE_IDENTIFIER = "com.aphcoder.ogre-ios-helloworld";
 				PRODUCT_NAME = "$(TARGET_NAME)";

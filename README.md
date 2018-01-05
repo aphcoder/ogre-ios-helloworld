@@ -2,12 +2,22 @@
 IOS ogre helloworld sample for ogremesh display
 
 
-TRIAL/EXPERIMENTAL, NOT FUNCTIONAL YET
+# Why
+
+* A very simple sample is mandatory to test the full chain deploiement to a device as according to many articles it could be very time consuming to have a version work with any device/platform/OS when recompiling by oneself.
+
+* Lots of blogs/articles are out of date.
+
+* Trying by myself to recompile from source and deploy to embedded but encountered some issues.
+
+* Opened a forum thread for community help at https://forums.ogre3d.org/viewtopic.php?f=21&t=93868
 
 
-Lots of blogs/articles are out of date
+# Status
 
-Trying by myself to recompile from source and deploy to embedded but encountered some issues
+* TRIAL/EXPERIMENTAL, NOT FULLY FUNCTIONAL YET
+
+* For IOS SIMU, the renderer and viewport are initialized properly
 
 
 
@@ -15,7 +25,7 @@ Trying by myself to recompile from source and deploy to embedded but encountered
 ## ogre 1.10.11 compilation
 
 
-```
+```bash
 Configuration:
 Ogre source https://www.ogre3d.org/download/sdk
 1.10.11
@@ -56,6 +66,16 @@ sudo make install
 sudo ln -s /usr/local/$LOGNAME/freetype-2.6.5 /usr/local/freetype
 
 
+// *************************
+// zlib 1.2.11 (not needed, but here the procedure in case of)
+// *************************
+mkdir ~/zlib && cd zlib
+curl -LO https://zlib.net/zlib-1.2.11.tar.gz
+tar xvzf zlib-1.2.11.tar.gz && cd zlib-1.2.11
+./configure --prefix=/usr/local/zlib
+make
+sudo make install
+
 
 
 // ******************************************************
@@ -64,7 +84,7 @@ sudo ln -s /usr/local/$LOGNAME/freetype-2.6.5 /usr/local/freetype
 
 gedit ./CMake/toolchain/ios.toolchain.xcode.cmake
 
-l153: removed arm7
+l153: removed arm7 (targeting device latest IOS 11.x only support 64bits arm9)
 if (${IOS_PLATFORM} STREQUAL "OS")
 set (IOS_ARCH arm64)
 else ()
@@ -76,22 +96,100 @@ endif ()
 // Generate xcodeproj for ogre
 // ******************************************************
 
+// From the forum help, for the moment, the best way is to do like the CI build (ci-build.make)
+cd ogre-1.10.11
 
 // SIMU
-cmake -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain/ios.toolchain.xcode.cmake -DIOS_PLATFORM=SIMULATOR -DFREETYPE_FT2BUILD_INCLUDE_DIR=/usr/local/freetype/include/freetype2 -G Xcode ..
+export IOS=TRUE
+cmake -P ci-build.cmake
+cmake --build .
 
+
+/* Instead of specific cmake commands:
+// SIMU
+cmake -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain/ios.toolchain.xcode.cmake -DIOS_PLATFORM=SIMULATOR -DFREETYPE_FT2BUILD_INCLUDE_DIR=/usr/local/freetype/include/freetype2 -G Xcode .
 
 // IOS Generic Device
-cmake -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain/ios.toolchain.xcode.cmake -DFREETYPE_FT2BUILD_INCLUDE_DIR=/usr/local/freetype/include/freetype2 -G Xcode ..
-
+cmake -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain/ios.toolchain.xcode.cmake -DFREETYPE_FT2BUILD_INCLUDE_DIR=/usr/local/freetype/include/freetype2 -G Xcode .
 
 // IOS DEVICES
-cmake -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain/ios.toolchain.xcode.cmake -DIOS_PLATFORM=OS -DFREETYPE_FT2BUILD_INCLUDE_DIR=/usr/local/freetype/include/freetype2 -G Xcode ..
-
+cmake -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain/ios.toolchain.xcode.cmake -DIOS_PLATFORM=OS -DFREETYPE_FT2BUILD_INCLUDE_DIR=/usr/local/freetype/include/freetype2 -G Xcode .
 
 // MAC 64bits:
 cmake -D OGRE_BUILD_PLATFORM_APPLE_IOS=1 -G Xcode ..
+*/
 
+
+find . -name "*.a"
+./lib/iphonesimulator/Debug/libSample_VolumeTerrain.a
+./lib/iphonesimulator/Debug/libSample_SkeletalAnimation.a
+./lib/iphonesimulator/Debug/libSample_DeferredShading.a
+./lib/iphonesimulator/Debug/libSample_SkyBox.a
+./lib/iphonesimulator/Debug/libSample_PNTriangles.a
+./lib/iphonesimulator/Debug/libSample_ShaderSystemTexturedFog.a
+./lib/iphonesimulator/Debug/libSample_TextureArray.a
+./lib/iphonesimulator/Debug/libSample_SkyPlane.a
+./lib/iphonesimulator/Debug/libSample_BezierPatch.a
+./lib/iphonesimulator/Debug/libVTests.a
+./lib/iphonesimulator/Debug/libSample_ShaderSystem.a
+./lib/iphonesimulator/Debug/libSample_FacialAnimation.a
+./lib/iphonesimulator/Debug/libSample_Water.a
+./lib/iphonesimulator/Debug/libSample_Transparency.a
+./lib/iphonesimulator/Debug/libSample_Lighting.a
+./lib/iphonesimulator/Debug/libSample_NewInstancing.a
+./lib/iphonesimulator/Debug/libSample_Smoke.a
+./lib/iphonesimulator/Debug/libSample_CelShading.a
+./lib/iphonesimulator/Debug/libSample_Character.a
+./lib/iphonesimulator/Debug/libSample_CameraTrack.a
+./lib/iphonesimulator/Debug/libSample_ParticleFX.a
+./lib/iphonesimulator/Debug/libSample_HLMS.a
+./lib/iphonesimulator/Debug/libSample_SkyDome.a
+./lib/iphonesimulator/Debug/libOgreGLSupportStatic.a
+./lib/iphonesimulator/Debug/libSample_DualQuaternion.a
+./lib/iphonesimulator/Debug/libRenderSystem_GLES2Static.a
+./lib/iphonesimulator/Debug/libSample_Grass.a
+./lib/iphonesimulator/Debug/libSample_Shadows.a
+./lib/iphonesimulator/Debug/libSample_Fresnel.a
+./lib/iphonesimulator/Debug/libSample_ShaderSystemMultiLight.a
+./lib/iphonesimulator/Debug/libSample_Terrain.a
+./lib/iphonesimulator/Debug/libSample_ParticleGS.a
+./lib/iphonesimulator/Debug/libSample_VolumeCSG.a
+./lib/iphonesimulator/Debug/libSample_Compute.a
+./lib/iphonesimulator/Debug/libSample_EndlessWorld.a
+./lib/iphonesimulator/Debug/libSample_Compositor.a
+./lib/iphonesimulator/Debug/libSample_BSP.a
+./lib/iphonesimulator/Debug/libOgreMainStatic.a
+./lib/iphonesimulator/Debug/libSample_Ocean.a
+./lib/iphonesimulator/Debug/libSample_DynTex.a
+./lib/iphonesimulator/Debug/libSample_PBR.a
+./lib/iphonesimulator/Debug/libSample_VolumeTex.a
+./lib/iphonesimulator/Debug/libSample_Instancing.a
+./lib/iphonesimulator/Debug/libSample_TextureFX.a
+./lib/iphonesimulator/Debug/libSample_CubeMapping.a
+./lib/iphonesimulator/Debug/libSample_Tessellation.a
+./lib/iphonesimulator/Debug/libSample_SSAO.a
+./lib/iphonesimulator/Debug/libSample_SphereMapping.a
+./lib/iphonesimulator/Debug/libSample_Isosurf.a
+./lib/iphonesimulator/Debug/libPlayPenTests.a
+./lib/iphonesimulator/Debug/libSample_Dot3Bump.a
+./lib/iphonesimulator/Debug/libSample_MeshLod.a
+./ogredeps/lib/libzzip.a
+./ogredeps/lib/libfreetyped.a
+
+./lib/iphonesimulator/Debug/Plugin_BSPSceneManagerStatic.framework
+./lib/iphonesimulator/Debug/Plugin_ParticleFXStatic.framework
+./lib/iphonesimulator/Debug/OgrePropertyStatic.framework
+./lib/iphonesimulator/Debug/Plugin_OctreeZoneStatic.framework
+./lib/iphonesimulator/Debug/Plugin_OctreeSceneManagerStatic.framework
+./lib/iphonesimulator/Debug/OgreRTShaderSystemStatic.framework
+./lib/iphonesimulator/Debug/OgrePagingStatic.framework
+./lib/iphonesimulator/Debug/Plugin_PCZSceneManagerStatic.framework
+./lib/iphonesimulator/Debug/OgreBitesStatic.framework
+./lib/iphonesimulator/Debug/OgreOverlayStatic.framework
+./lib/iphonesimulator/Debug/OgreVolumeStatic.framework
+./lib/iphonesimulator/Debug/OgreMeshLodGeneratorStatic.framework
+./lib/iphonesimulator/Debug/OgreHLMSStatic.framework
+./lib/iphonesimulator/Debug/OgreTerrainStatic.framework
 
 
 // Check
@@ -99,30 +197,6 @@ find ./lib -name "*.a" | xargs ls -l
 xcrun -sdk iphoneos lipo -info libOgreMainStatic.a
 
 
-
-find . -name "*.a"
-./iOSDependencies/lib/libfreetype.a
-./freetype-2.6.5/objs/RelWithDebInfo-iphoneos/libfreetype.a
-./lib/iphoneos/Debug/libOgreGLSupportStatic.a
-./lib/iphoneos/Debug/libRenderSystem_GLES2Static.a
-./lib/iphoneos/Debug/libOgreMainStatic.a
-./lib/iphonesimulator/Debug/libOgreGLSupportStatic.a
-./lib/iphonesimulator/Debug/libRenderSystem_GLES2Static.a
-./lib/iphonesimulator/Debug/libOgreMainStatic.a
-
-find . -name "*.framework"
-./lib/iphoneos/Debug/Plugin_BSPSceneManagerStatic.framework
-./lib/iphoneos/Debug/Plugin_ParticleFXStatic.framework
-./lib/iphoneos/Debug/OgrePropertyStatic.framework
-./lib/iphoneos/Debug/Plugin_OctreeZoneStatic.framework
-./lib/iphoneos/Debug/Plugin_OctreeSceneManagerStatic.framework
-./lib/iphoneos/Debug/OgreRTShaderSystemStatic.framework
-./lib/iphoneos/Debug/OgrePagingStatic.framework
-./lib/iphoneos/Debug/Plugin_PCZSceneManagerStatic.framework
-./lib/iphoneos/Debug/OgreVolumeStatic.framework
-./lib/iphoneos/Debug/OgreMeshLodGeneratorStatic.framework
-./lib/iphoneos/Debug/OgreHLMSStatic.framework
-./lib/iphoneos/Debug/OgreTerrainStatic.framework
 
 ```
 
@@ -142,10 +216,10 @@ Used Java style coding.
 
 ## TODO
 
-[X] Resolve Cannot initialise - no render system has been selected
-[X] Have OgreMesh properly displayed on iphone simulator
-[X] Have OgreMesh properly displayed on iphone device
-[X] Port application to new style Ogre Bites
+[X] Resolve Cannot initialise - no render system has been selected (DONE with SIMU)
+[] Have OgreMesh properly displayed on iphone simulator
+[] Have OgreMesh properly displayed on iphone device
+[] Port application to new style Ogre Bites
 
 
 ## Last run logs/status
