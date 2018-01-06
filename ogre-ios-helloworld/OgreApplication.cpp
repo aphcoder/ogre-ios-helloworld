@@ -27,7 +27,7 @@ bool FileExists(std::string filepath) {
     return false;
 }
 
-OgreApplication::OgreApplication(void) {
+OgreApplication::OgreApplication(): OgreBites::ApplicationContext("OgreApplication") {
     mRoot = 0;
     mSceneManager = 0;
     mRenderWindow = 0;
@@ -52,15 +52,69 @@ OgreApplication::~OgreApplication(void) {
     delete mRoot;
 }
 
-void OgreApplication::start(void* uiWindow, void* uiView, unsigned int width, unsigned int height) {
-    initializeRenderer(uiWindow, uiView, width, height);
-    createCameraAndViewport();
+void OgreApplication::setup() {
     
+    // Check/debug loaded render systems: (if empty => init error: no render system selected)
+    mRoot = &(Root::getSingleton());
+    
+    Ogre::RenderSystem *renderSystem;
+    const Ogre::RenderSystemList renderers =
+    Ogre::Root::getSingleton().getAvailableRenderers();
+    for (Ogre::RenderSystemList::const_iterator it = renderers.begin();
+         it != renderers.end(); it++) {
+        renderSystem = (*it);
+        const  Ogre::String renderSystemName = renderSystem->getName();
+        const char *renderSystemNameCstr = renderSystemName.c_str();
+        (void)renderSystemNameCstr; // fix warning
+    }
+    renderSystem = (*renderers.begin());
+    mRoot->setRenderSystem(renderSystem);
+    
+    
+    //Process like: OgreBites::ApplicationContext::setup();
+    mRoot->initialise(false);
+    
+#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
+    Ogre::NameValuePairList miscParams;
+    miscParams["colourDepth"] = "32";
+    miscParams["contentScalingFactor"] = "2.0";
+    miscParams["FSAA"] = "4";
+    miscParams["Video Mode"] = Ogre::StringConverter::toString(mWidth) + "x" + Ogre::StringConverter::toString(mHeight);
+    miscParams["externalWindowHandle"] = Ogre::StringConverter::toString((unsigned long)mUiWindow);
+    miscParams["externalViewHandle"] = Ogre::StringConverter::toString((unsigned long)mUiView);
+    
+    NativeWindowPair ret = createWindow(mAppName, mWidth, mHeight, miscParams);
+    mRenderWindow = ret.render;
+#else
+    createWindow(mAppName);
+#endif
+    
+    locateResources();
+    initialiseRTShaderSystem();
     loadResources();
     
-    //initializeRTShaderSystem();
+    // adds context as listener to process context-level (above the sample level) events
+    mRoot->addFrameListener(this);
+}
+
+void OgreApplication::start(void* uiWindow, void* uiView, unsigned int width, unsigned int height) {
+
+    mUiWindow = uiWindow;
+    mUiView = uiView;
+    mWidth = width;
+    mHeight = height;
+    
+    ApplicationContext::initApp();
+    
+    /*
+    // Old style init
+    initializeRenderer(uiWindow, uiView, width, height);
+    loadResources();
+    initialiseRTShaderSystem();
+    */
     
     createScene();
+     
 }
 
 void OgreApplication::stop() {
@@ -91,8 +145,6 @@ void OgreApplication::draw() {
 }
 
 
-
-
 void OgreApplication::initializeRenderer(void *uiWindow, void *uiView,
                                          unsigned int width, unsigned int height) {
     OgreAssert(!mRoot, "Existing root");
@@ -116,22 +168,24 @@ void OgreApplication::initializeRenderer(void *uiWindow, void *uiView,
         const char *renderSystemNameCstr = renderSystemName.c_str();
         (void)renderSystemNameCstr; // fix warning
     }
+    renderSystem = (*renderers.begin());
+    mRoot->setRenderSystem(renderSystem);
     
-    Ogre::NameValuePairList params;
-    params["colourDepth"] = "32";
-    params["contentScalingFactor"] = "2.0";
-    params["FSAA"] = "4";
-    params["Video Mode"] = Ogre::StringConverter::toString(width) + "x" + Ogre::StringConverter::toString(height);
-    params["externalWindowHandle"] = Ogre::StringConverter::toString((unsigned long)uiWindow);
-    params["externalViewHandle"] = Ogre::StringConverter::toString((unsigned long)uiView);
+    Ogre::NameValuePairList miscParams;
+    
+    miscParams["colourDepth"] = "32";
+    miscParams["contentScalingFactor"] = "2.0";
+    miscParams["FSAA"] = "4";
+    miscParams["Video Mode"] = Ogre::StringConverter::toString(width) + "x" + Ogre::StringConverter::toString(height);
+     
+    miscParams["externalWindowHandle"] = Ogre::StringConverter::toString((unsigned long)uiWindow);
+    miscParams["externalViewHandle"] = Ogre::StringConverter::toString((unsigned long)uiView);
     
     // Initialize without creating a RenderWindow
     mRoot->initialise(false);
     
     // Create the window and attach it to the given UI stuffs.
-    mRenderWindow = mRoot->createRenderWindow("", width, height, false, &params);
-    
-    mSceneManager = mRoot->createSceneManager(Ogre::ST_GENERIC, "SceneManager");
+    mRenderWindow = mRoot->createRenderWindow("", width, height, false, &miscParams);
 }
 
 void OgreApplication::terminateRenderer() {
@@ -174,137 +228,18 @@ void OgreApplication::unloadResources() {
     
 }
 
-bool OgreApplication::initializeRTShaderSystem() {
-#if 0
-    if (Ogre::RTShader::ShaderGenerator::initialize())
-    {
-        mShaderGenerator = Ogre::RTShader::ShaderGenerator::getSingletonPtr();
-        
-        mShaderGenerator->addSceneManager(mSceneManager);
-        
-        // Setup core libraries and shader cache path.
-        Ogre::StringVector groupVector = Ogre::ResourceGroupManager::getSingleton().getResourceGroups();
-        Ogre::StringVector::iterator itGroup = groupVector.begin();
-        Ogre::StringVector::iterator itGroupEnd = groupVector.end();
-        Ogre::String shaderCoreLibsPath;
-        Ogre::String shaderCachePath;
-        
-        for (; itGroup != itGroupEnd; ++itGroup)
-        {
-            Ogre::ResourceGroupManager::LocationList resLocationsList = Ogre::ResourceGroupManager::getSingleton().getResourceLocationList(*itGroup);
-            Ogre::ResourceGroupManager::LocationList::iterator it = resLocationsList.begin();
-            Ogre::ResourceGroupManager::LocationList::iterator itEnd = resLocationsList.end();
-            bool coreLibsFound = false;
-            
-            // Try to find the location of the core shader lib functions and use it
-            // as shader cache path as well - this will reduce the number of generated files
-            // when running from different directories.
-            for (; it != itEnd; ++it)
-            {
-                if ((*it)->archive->getName().find("RTShaderLib") != Ogre::String::npos)
-                {
-                    shaderCoreLibsPath = (*it)->archive->getName() + "/";
-                    shaderCachePath = shaderCoreLibsPath;
-                    coreLibsFound = true;
-                    break;
-                }
-            }
-            // Core libs path found in the current group.
-            if (coreLibsFound)
-                break;
-        }
-        
-        // Core shader libs not found -> shader generating will fail.
-        if (shaderCoreLibsPath.empty())
-            return false;
-        
-        // Create and register the material manager listener.
-        mMaterialMgrListener = new ShaderGeneratorTechniqueResolverListener(mShaderGenerator);
-        Ogre::MaterialManager::getSingleton().addListener(mMaterialMgrListener);
-        
-        Ogre::MaterialPtr baseWhite = Ogre::MaterialManager::getSingleton().getByName("BaseWhite", Ogre::ResourceGroupManager::INTERNAL_RESOURCE_GROUP_NAME);
-        baseWhite->setLightingEnabled(false);
-        
-        mShaderGenerator->createShaderBasedTechnique("BaseWhite",
-                                                     Ogre::MaterialManager::DEFAULT_SCHEME_NAME,
-                                                     Ogre::RTShader::ShaderGenerator::DEFAULT_SCHEME_NAME);
-        
-        mShaderGenerator->validateMaterial(Ogre::RTShader::ShaderGenerator::DEFAULT_SCHEME_NAME,
-                                           "BaseWhite");
-        baseWhite->getTechnique(0)->getPass(0)->setVertexProgram(
-                                                                 baseWhite->getTechnique(1)->getPass(0)->getVertexProgram()->getName());
-        baseWhite->getTechnique(0)->getPass(0)->setFragmentProgram(
-                                                                   baseWhite->getTechnique(1)->getPass(0)->getFragmentProgram()->getName());
-        
-        // creates shaders for base material BaseWhiteNoLighting using the RTSS
-        mShaderGenerator->createShaderBasedTechnique("BaseWhiteNoLighting",
-                                                     Ogre::MaterialManager::DEFAULT_SCHEME_NAME,
-                                                     Ogre::RTShader::ShaderGenerator::DEFAULT_SCHEME_NAME);
-        mShaderGenerator->validateMaterial(Ogre::RTShader::ShaderGenerator::DEFAULT_SCHEME_NAME,
-                                           "BaseWhiteNoLighting");
-        Ogre::MaterialPtr baseWhiteNoLighting = Ogre::MaterialManager::getSingleton().getByName("BaseWhiteNoLighting", Ogre::ResourceGroupManager::INTERNAL_RESOURCE_GROUP_NAME);
-        baseWhiteNoLighting->getTechnique(0)->getPass(0)->setVertexProgram(
-                                                                           baseWhiteNoLighting->getTechnique(1)->getPass(0)->getVertexProgram()->getName());
-        baseWhiteNoLighting->getTechnique(0)->getPass(0)->setFragmentProgram(
-                                                                             baseWhiteNoLighting->getTechnique(1)->getPass(0)->getFragmentProgram()->getName());
-    }
-#endif // 0
-    
-    return true;
-}
-
-void OgreApplication::terminateRTShaderSystem()
-{
-    mShaderGenerator->removeSceneManager(mSceneManager);
-    
-    // Restore default scheme.
-    Ogre::MaterialManager::getSingleton().setActiveScheme(Ogre::MaterialManager::DEFAULT_SCHEME_NAME);
-    
-    // Unregister the material manager listener.
-    if (mMaterialMgrListener != NULL)
-    {
-        Ogre::MaterialManager::getSingleton().removeListener(mMaterialMgrListener);
-        delete mMaterialMgrListener;
-        mMaterialMgrListener = NULL;
-    }
-    
-    // Finalize RTShader system.
-    if (mShaderGenerator != NULL)
-    {
-        //TODO Ogre::RTShader::ShaderGenerator::finalize();
-        mShaderGenerator = NULL;
-    }
-}
-
-
-
 void OgreApplication::createCameraAndViewport() {
-    /*
-    OgreAssert(mSceneManager, "NULL scene manager");
-    OgreAssert(!mCamera, "Existing camera");
-    OgreAssert(!mViewport, "Existing viewport");
-    
-    mCamera = mSceneManager->createCamera("Camera");
-    
-    mViewport = mRenderWindow->addViewport(mCamera);
-    mViewport->setBackgroundColour(Ogre::ColourValue(0.8f, 0.7f, 0.6f, 1.0f));
-    
-    resetCamera();
-    
-    mViewport->setCamera(mCamera);
-    */
-    
-    
+
     // Create the camera
     mCamera = mSceneManager->createCamera("PlayerCam");
     
     // Position it at 500 in Z direction
-    mCamera->setPosition(Ogre::Vector3(0,0,80));
+    mCamera->setPosition(Ogre::Vector3(0,0,150));
     // Look back along -Z
     mCamera->lookAt(Ogre::Vector3(0,0,-300));
     mCamera->setNearClipDistance(5);
     
-    //-------------------------------------------------------------------------------------
+    
     // create viewports
     // Create one viewport, entire window
     Ogre::Viewport* vp = mRenderWindow->addViewport(mCamera);
@@ -312,17 +247,23 @@ void OgreApplication::createCameraAndViewport() {
     
     // Alter the camera aspect ratio to match the viewport
     mCamera->setAspectRatio(Ogre::Real(vp->getActualWidth()) / Ogre::Real(vp->getActualHeight()));
-    
 }
 
 void OgreApplication::createScene() {
     
-    // Create the scene
-    Ogre::Entity* ogreHead = mSceneManager->createEntity("Head", "ogrehead.mesh");
+    // Process like ApplicationContext::createDummyScene()
+    //mWindows[0].render->removeAllViewports();
+    mSceneManager = mRoot->createSceneManager("DefaultSceneManager", "DummyScene");
+
+    createCameraAndViewport();
+
+    mShaderGenerator->addSceneManager(mSceneManager);
+
     
+    // Add entity
+    Ogre::Entity* ogreHead = mSceneManager->createEntity("Head", "ogrehead.mesh");
     Ogre::SceneNode* rootNode = mSceneManager->getRootSceneNode();
     Ogre::SceneNode* headNode = rootNode->createChildSceneNode();
-    
     headNode->attachObject(ogreHead);
     
     // Set ambient light

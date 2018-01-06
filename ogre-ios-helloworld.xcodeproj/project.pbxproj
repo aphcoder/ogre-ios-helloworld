@@ -28,6 +28,7 @@
 		931411F71FFC4A62000B6F17 /* resources.cfg in Resources */ = {isa = PBXBuildFile; fileRef = 931411D51FFA703D000B6F17 /* resources.cfg */; };
 		931411FB1FFF5D8A000B6F17 /* OgreRTShaderSystemStatic in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411FA1FFF5D89000B6F17 /* OgreRTShaderSystemStatic */; };
 		931411FC1FFF5E45000B6F17 /* media in Resources */ = {isa = PBXBuildFile; fileRef = 931411D81FFA703D000B6F17 /* media */; };
+		931411FE20002951000B6F17 /* OgreOverlayStatic in Frameworks */ = {isa = PBXBuildFile; fileRef = 931411FD20002951000B6F17 /* OgreOverlayStatic */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -61,6 +62,7 @@
 		931411F21FFB68AE000B6F17 /* Plugin_ParticleFXStatic */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = Plugin_ParticleFXStatic; path = "../../ogre/ogre-1.10.11/lib/iphonesimulator/Debug/Plugin_ParticleFXStatic.framework/Plugin_ParticleFXStatic"; sourceTree = "<group>"; };
 		931411F41FFB68CD000B6F17 /* Plugin_OctreeSceneManagerStatic */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = Plugin_OctreeSceneManagerStatic; path = "../../ogre/ogre-1.10.11/lib/iphonesimulator/Debug/Plugin_OctreeSceneManagerStatic.framework/Plugin_OctreeSceneManagerStatic"; sourceTree = "<group>"; };
 		931411FA1FFF5D89000B6F17 /* OgreRTShaderSystemStatic */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = OgreRTShaderSystemStatic; path = "../../ogre/ogre-1.10.11/lib/iphonesimulator/Debug/OgreRTShaderSystemStatic.framework/OgreRTShaderSystemStatic"; sourceTree = "<group>"; };
+		931411FD20002951000B6F17 /* OgreOverlayStatic */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; name = OgreOverlayStatic; path = "../../ogre/ogre-1.10.11/lib/iphonesimulator/Debug/OgreOverlayStatic.framework/OgreOverlayStatic"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,6 +70,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				931411FE20002951000B6F17 /* OgreOverlayStatic in Frameworks */,
 				931411FB1FFF5D8A000B6F17 /* OgreRTShaderSystemStatic in Frameworks */,
 				931411F51FFB68CE000B6F17 /* Plugin_OctreeSceneManagerStatic in Frameworks */,
 				931411F31FFB68AE000B6F17 /* Plugin_ParticleFXStatic in Frameworks */,
@@ -126,6 +129,7 @@
 		931411C71FFA6EBC000B6F17 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				931411FD20002951000B6F17 /* OgreOverlayStatic */,
 				931411FA1FFF5D89000B6F17 /* OgreRTShaderSystemStatic */,
 				931411F41FFB68CD000B6F17 /* Plugin_OctreeSceneManagerStatic */,
 				931411F21FFB68AE000B6F17 /* Plugin_ParticleFXStatic */,
