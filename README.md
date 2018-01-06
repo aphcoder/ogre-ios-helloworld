@@ -6,7 +6,7 @@ IOS ogre helloworld sample for ogremesh display
 
 * A very simple sample is mandatory to test the full chain deploiement to a device as according to many articles it could be very time consuming to have a version work with any device/platform/OS when recompiling by oneself.
 
-* Lots of blogs/articles are out of date.
+* Lots of blogs/articles are out of date. (1.10 initialization is simplified with OgreBites::ApplicationContext)
 
 * Trying by myself to recompile from source and deploy to embedded but encountered some issues.
 
@@ -17,7 +17,8 @@ IOS ogre helloworld sample for ogremesh display
 
 * TRIAL/EXPERIMENTAL, NOT FULLY FUNCTIONAL YET
 
-* For IOS SIMU, the renderer and viewport are initialized properly
+* For IOS SIMU, viewport and Sinbad are rendered properly
+
 
 
 
@@ -209,18 +210,18 @@ References:
 
 https://github.com/cloderic/ios-ogre
 http://wiki.ogre3d.org/Ogre+Wiki+Tutorial+Framework
+https://ogrecave.github.io/ogre/api/1.10/setup.html
 
 Used Java style coding.
+
+
 ```
 
 
 ## TODO
 
-* [X] Resolve Cannot initialise - no render system has been selected (DONE with SIMU)
-* [] Fix Shader initialization due to OgreMesh material
-* [] Have OgreMesh properly displayed on iphone simulator
-* [] Have OgreMesh properly displayed on iphone device
-* [] Port application to new style Ogre Bites
+* [] Have Sinbad properly displayed on iphone device
+
 
 
 ## Last run logs/status
@@ -233,7 +234,7 @@ SIMU: Expected Fushia screen color afer properly static lib loading and viewport
 
 
 ```
-2018-01-05 08:22:27.599789+0100 ogre-ios-helloworld[48568:1711746] +[CATransaction synchronize] called within transaction
+2018-01-06 13:37:56.092161+0100 ogre-ios-helloworld[56103:2460211] +[CATransaction synchronize] called within transaction
 Creating resource group General
 Creating resource group OgreInternal
 Creating resource group OgreAutodetect
@@ -284,6 +285,10 @@ Particle Affector Type 'DeflectorPlane' registered
 Plugin successfully installed
 Installing plugin: BSP Scene Manager
 Plugin successfully installed
+OverlayElementFactory for type Panel registered.
+OverlayElementFactory for type BorderPanel registered.
+OverlayElementFactory for type TextArea registered.
+Registering ResourceManager for type Font
 CPU Identifier & Features
 -------------------------
 *   CPU ID: GenuineIntel: Intel(R) Core(TM) i5-7267U CPU @ 3.10GHz
@@ -304,7 +309,7 @@ CPU Identifier & Features
 *           HT: no
 -------------------------
 Registering ResourceManager for type Texture
-GLES2RenderSystem::_createRenderWindow "", 320x480 windowed  miscParams: FSAA=4 Video Mode=320x480 colourDepth=32 contentScalingFactor=2.0 externalViewHandle=140283965609568 externalWindowHandle=140283962506208
+GLES2RenderSystem::_createRenderWindow "OgreApplication", 320x480 windowed  miscParams: FSAA=4 Video Mode=320x480 colourDepth=32 contentScalingFactor=2.0 externalViewHandle=140460906550864 externalWindowHandle=140460903407024
 iOS: Using an external window handle
 iOS: Using an external view handle
 iOS: Window created 320 x 480 with backing store size 320 x 480 using content scaling factor 1.0
@@ -377,21 +382,21 @@ Driver Version: 3.0.0.0
 * Number of integer constants for fragment programs: 896
 * Number of boolean constants for fragment programs: 896
 * Geometry programs: no
-* Number of floating-point constants for geometry programs: 0
-* Number of integer constants for geometry programs: 0
-* Number of boolean constants for geometry programs: 0
+* Number of floating-point constants for geometry programs: 29535
+* Number of integer constants for geometry programs: 18258
+* Number of boolean constants for geometry programs: 8258
 * Tessellation Hull programs: no
-* Number of floating-point constants for tessellation hull programs: 0
-* Number of integer constants for tessellation hull programs: 0
-* Number of boolean constants for tessellation hull programs: 0
+* Number of floating-point constants for tessellation hull programs: 29556
+* Number of integer constants for tessellation hull programs: 18208
+* Number of boolean constants for tessellation hull programs: 24396
 * Tessellation Domain programs: no
-* Number of floating-point constants for tessellation domain programs: 0
-* Number of integer constants for tessellation domain programs: 0
-* Number of boolean constants for tessellation domain programs: 0
+* Number of floating-point constants for tessellation domain programs: 22597
+* Number of integer constants for tessellation domain programs: 24404
+* Number of boolean constants for tessellation domain programs: 26739
 * Compute programs: no
-* Number of floating-point constants for compute programs: 0
-* Number of integer constants for compute programs: 0
-* Number of boolean constants for compute programs: 0
+* Number of floating-point constants for compute programs: 25697
+* Number of integer constants for compute programs: 29285
+* Number of boolean constants for compute programs: 26207
 * Supported Shader Profiles: glsl300es glsles
 * Texture Compression: yes
 - DXT: no
@@ -437,14 +442,18 @@ Particle Renderer Type 'billboard' registered
 SceneManagerFactory for type 'OctreeSceneManager' registered.
 SceneManagerFactory for type 'BspSceneManager' registered.
 Registering ResourceManager for type BspLevel
-Creating resource group Bootstrap
-Added resource location '/Users/aphcoder/Library/Developer/CoreSimulator/Devices/426054DF-601C-45B6-9EA6-108EFAD6F034/data/Containers/Bundle/Application/446A7F99-F023-419E-A1F9-2D254D0937C4/ogre-ios-helloworld.app/media/packs/SdkTrays.zip' of type 'Zip' to resource group 'Bootstrap'
-Parsing scripts for resource group Bootstrap
-Parsing script SdkTrays.material
-Finished parsing scripts for resource group Bootstrap
-Creating resources for group Bootstrap
-All done
+Added resource location '/Users/aphcoder/Library/Developer/CoreSimulator/Devices/426054DF-601C-45B6-9EA6-108EFAD6F034/data/Containers/Bundle/Application/4B66BC10-6500-4B8B-BEFC-70CEA2B9533D/ogre-ios-helloworld.app/media/models' of type 'FileSystem' to resource group 'General'
+Added resource location '/Users/aphcoder/Library/Developer/CoreSimulator/Devices/426054DF-601C-45B6-9EA6-108EFAD6F034/data/Containers/Bundle/Application/4B66BC10-6500-4B8B-BEFC-70CEA2B9533D/ogre-ios-helloworld.app/media/packs/Sinbad.zip' of type 'Zip' to resource group 'General'
+Added resource location '/Users/aphcoder/Library/Developer/CoreSimulator/Devices/426054DF-601C-45B6-9EA6-108EFAD6F034/data/Containers/Bundle/Application/4B66BC10-6500-4B8B-BEFC-70CEA2B9533D/ogre-ios-helloworld.app/Media/materials/programs/GLSLES' of type 'FileSystem' to resource group 'General'
+Added resource location '/Users/aphcoder/Library/Developer/CoreSimulator/Devices/426054DF-601C-45B6-9EA6-108EFAD6F034/data/Containers/Bundle/Application/4B66BC10-6500-4B8B-BEFC-70CEA2B9533D/ogre-ios-helloworld.app/Media/RTShaderLib/materials' of type 'FileSystem' to resource group 'General'
+Added resource location '/Users/aphcoder/Library/Developer/CoreSimulator/Devices/426054DF-601C-45B6-9EA6-108EFAD6F034/data/Containers/Bundle/Application/4B66BC10-6500-4B8B-BEFC-70CEA2B9533D/ogre-ios-helloworld.app/Media/RTShaderLib/GLSL' of type 'FileSystem' to resource group 'General'
+Added resource location '/Users/aphcoder/Library/Developer/CoreSimulator/Devices/426054DF-601C-45B6-9EA6-108EFAD6F034/data/Containers/Bundle/Application/4B66BC10-6500-4B8B-BEFC-70CEA2B9533D/ogre-ios-helloworld.app/Media/RTShaderLib/GLSLES' of type 'FileSystem' to resource group 'General'
 Parsing scripts for resource group General
+Parsing script Sinbad.material
+Parsing script HardwareSkinningShadow.material
+Parsing script TriplanarTexturing.material
+Parsing script RTShaderSystem.material
+Parsing script DualQuaternionSkinning_Shadow.material
 Finished parsing scripts for resource group General
 Creating resources for group General
 All done
@@ -456,8 +465,67 @@ Parsing scripts for resource group OgreInternal
 Finished parsing scripts for resource group OgreInternal
 Creating resources for group OgreInternal
 All done
-Mesh: Loading ogrehead.mesh.
-2018-01-05 08:22:27.847894+0100 ogre-ios-helloworld[48568:1711746] ViewController::startWithWindow Exception: FileNotFoundException: Cannot locate resource ogrehead.mesh in resource group OgreAutodetect. in ResourceGroupManager::openResource at /Users/aphcoder/ogre/ogre-1.10.11/OgreMain/src/OgreResourceGroupManager.cpp (line 708)
+Mesh: Loading Sinbad.mesh.
+Skeleton: Loading Sinbad.skeleton
+GLES2Texture::create - Name: sinbad_body.tga ID: 1 Width: 512 Height: 512 Internal Format: 0x8051
+Texture: sinbad_body.tga: Loading 1 faces(PF_B8G8R8,512x512x1) with 9 hardware generated mipmaps from Image. Internal format is PF_B8G8R8,512x512x1.
+GLES2TextureBuffer::upload - ID: 1 Target: 3553 Format: PF_B8G8R8 Origin format: 0x1907 Data type: 0x1401
+GLES2Texture::create - Name: sinbad_clothes.tga ID: 2 Width: 512 Height: 512 Internal Format: 0x8051
+Texture: sinbad_clothes.tga: Loading 1 faces(PF_B8G8R8,512x512x1) with 9 hardware generated mipmaps from Image. Internal format is PF_B8G8R8,512x512x1.
+GLES2TextureBuffer::upload - ID: 2 Target: 3553 Format: PF_B8G8R8 Origin format: 0x1907 Data type: 0x1401
+GLES2Texture::create - Name: sinbad_sword.tga ID: 3 Width: 256 Height: 256 Internal Format: 0x8051
+Texture: sinbad_sword.tga: Loading 1 faces(PF_B8G8R8,256x256x1) with 8 hardware generated mipmaps from Image. Internal format is PF_B8G8R8,256x256x1.
+GLES2TextureBuffer::upload - ID: 3 Target: 3553 Format: PF_B8G8R8 Origin format: 0x1907 Data type: 0x1401
+Warning: the mesh 'Sinbad.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+Vertex Program:0369b6fd3565713ef085ad6153f68a12_VS Fragment Program:261169c92d2de4a41d1c4058f1f40751_FS
+GLSL vertex program result :
+WARNING: Could not find vertex shader attribute 'blendWeights' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv5' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'secondary_colour' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv1' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv4' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'blendIndices' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv6' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv2' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'colour' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'position' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv3' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv7' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'binormal' to match BindAttributeLocation request.
+Vertex Program:0369b6fd3565713ef085ad6153f68a12_VS Fragment Program:261169c92d2de4a41d1c4058f1f40751_FS
+GLSL program pipeline result :
+WARNING: Could not find vertex shader attribute 'blendWeights' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv5' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'secondary_colour' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv1' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv4' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'blendIndices' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv6' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv2' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'colour' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'position' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv3' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv7' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'binormal' to match BindAttributeLocation request.
+Vertex Program:1f1c82ae619b18309d69663ce577b6f3_VS Fragment Program:18850cb0ce807df2a404e86fee49c28b_FS
+GLSL vertex program result :
+WARNING: Could not find vertex shader attribute 'blendWeights' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv5' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'secondary_colour' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv1' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv4' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'blendIndices' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv6' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv2' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'colour' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'position' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'tangent' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv3' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'uv7' to match BindAttributeLocation request.
+WARNING: Could not find vertex shader attribute 'binormal' to match BindAttributeLocation request.
+
 
 ```
 

@@ -17,26 +17,20 @@ using namespace OgreBites;
 
 
 class OgreApplication : public OgreBites::ApplicationContext, public OgreBites::InputListener {
-    
-protected:
-    Ogre::Root *mRoot;
-    Ogre::SceneManager *mSceneManager;
-    Ogre::RenderWindow *mRenderWindow;
-    Ogre::Camera *mCamera;
-    Ogre::Viewport* mViewport;
-    
-    Ogre::String mResourcesRoot;
-    Ogre::String mResourcesCfg;
-    Ogre::String mPluginsCfg;
-    Ogre::String mOgreCfg;
-    OgreBites::StaticPluginLoader mStaticPluginLoader;
 
-    
+private:
     void* mUiWindow;
     void* mUiView;
     unsigned int mWidth;
     unsigned int mHeight;
     
+protected:
+    Ogre::SceneManager *mSceneManager;
+    Ogre::RenderWindow *mRenderWindow;
+    Ogre::Camera *mCamera;
+    Ogre::Viewport* mViewport;
+    
+
 public:
     OgreApplication(void);
     virtual ~OgreApplication(void);
@@ -49,19 +43,10 @@ public:
     void draw();
     
     void setup();
-    
-private:
-    void initializeRenderer(void *uiWindow, void *uiView,
-                            unsigned int width, unsigned int height);
-    void terminateRenderer();
-    void loadResources();
-    void unloadResources();
-    
-    bool initializeRTShaderSystem();
-    void terminateRTShaderSystem();
-    
     void createCameraAndViewport();
     void createScene();
+
+
 
 };
 
