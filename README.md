@@ -15,11 +15,14 @@ IOS ogre helloworld sample for ogremesh display
 
 # Status
 
-* TRIAL/EXPERIMENTAL, NOT FULLY FUNCTIONAL YET
+
 
 * For IOS SIMU, viewport and Sinbad are rendered properly
 
-
+* For IOS Device, viewport and Sinbad are rendered properly
+    * need to sign a development team for xcode project
+    * The media resources is "Media" and not "media"
+    * Very tricky part to compile first for SIMU, keep track of some generated stuffs, clean and build for Device
 
 
 
@@ -101,6 +104,7 @@ endif ()
 // From the forum help, for the moment, the best way is to do like the CI build (ci-build.make)
 cd ogre-1.10.11
 
+> gedit ci-build.make &
 set(BUILD_DEPS TRUE)
 -DIOS_PLATFORM=SIMULATOR
 
@@ -113,26 +117,22 @@ export IOS=TRUE && cmake -P ci-build.cmake && cmake --build .
 cp ./ogredeps/lib/*.a lib/iphonesimulator/Debug/
 
 
-
+// DEVICE
 rm -f CMakeCache.txt
 -DIOS_PLATFORM=OS
 export IOS=TRUE && cmake -P ci-build.cmake && cmake --build .
-Change ZZIPlib-master.xcode for all arm9 and remove all dynlib (dynamic)
+Change ZZIPlib-master.xcode for all arm9 and remove all dynlib (dynamic options)
 => link fine (no Factory missing for ZIP)
 
 
-cmake -DIOS_PLATFORM=OS -G Xcode .
 
-/* Instead of specific cmake commands:
+/* Instead of specific cmake commands:(missing some libs generation)
 // SIMU
 export IOS=TRUE &&
 cmake -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain/ios.toolchain.xcode.cmake -DIOS_PLATFORM=SIMULATOR -DFREETYPE_FT2BUILD_INCLUDE_DIR=/usr/local/freetype/include/freetype2 -DOGRE_BUILD_DEPENDENCIES=TRUE -DOGRE_DEPENDENCIES_DIR="/Users/aphcoder/ogre/ogre-1.10.11/MyDeps" -G Xcode .
 cmake --build .
 (missing Overlay and OgreBites Should pass -DOGRE_BUILD_DEPENDENCIES=TRUE -DOGRE_DEPENDENCIES_DIR="./MyDeps" )
 
-// IOS Generic Device
-cmake -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain/ios.toolchain.xcode.cmake -DFREETYPE_FT2BUILD_INCLUDE_DIR=/usr/local/freetype/include/freetype2 -G Xcode .
--DOGRE_BUILD_DEPENDENCIES=TRUE
 
 // IOS DEVICES
 cmake -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain/ios.toolchain.xcode.cmake -DIOS_PLATFORM=OS -DFREETYPE_FT2BUILD_INCLUDE_DIR=/usr/local/freetype/include/freetype2 -DOGRE_BUILD_DEPENDENCIES=TRUE -DOGRE_DEPENDENCIES_DIR="./MyDeps" -G Xcode .
@@ -216,8 +216,9 @@ find . -name "*.a"
 ./lib/iphonesimulator/Debug/OgreTerrainStatic.framework
 
 
-// Check
-find ./lib -name "*.a" | xargs ls -l
+// Check for arm64
+find . -name "*.a" | xargs xcrun -sdk iphoneos lipo -info
+
 xcrun -sdk iphoneos lipo -info libOgreMainStatic.a
 
 
@@ -238,26 +239,32 @@ https://ogrecave.github.io/ogre/api/1.10/setup.html
 Used Java style coding.
 
 
+Framework and library search paths:
+$(OGRE_SDK_ROOT)/lib/$(PLATFORM_NAME)/Debug
+
+
+Header search paths:
+$(OGRE_SDK_ROOT)/OgreMain/include
+$(OGRE_SDK_ROOT)/include
+$(OGRE_SDK_ROOT)/OgreMain/include/iOS
+$(OGRE_SDK_ROOT)/Components/Bites/include
+$(OGRE_SDK_ROOT)/Components/RTShaderSystem/include
+$(OGRE_SDK_ROOT)/ZZIPlib-master
+
 ```
 
 
 ## TODO
-
-* [] Have Sinbad properly displayed on iphone device
 
 
 
 ## Last run logs/status
 
 
-```
-SIMU: Expected Fushia screen color afer properly static lib loading and viewport rendering.
 
 ```
-
-
-```
-2018-01-06 13:37:56.092161+0100 ogre-ios-helloworld[56103:2460211] +[CATransaction synchronize] called within transaction
+2018-01-11 00:06:56.601028+0100 ogre-ios-helloworld[835:232235] [DYMTLInitPlatform] platform initialization successful
+2018-01-11 00:06:57.239422+0100 ogre-ios-helloworld[835:232117] +[CATransaction synchronize] called within transaction
 Creating resource group General
 Creating resource group OgreInternal
 Creating resource group OgreAutodetect
@@ -314,31 +321,18 @@ OverlayElementFactory for type TextArea registered.
 Registering ResourceManager for type Font
 CPU Identifier & Features
 -------------------------
-*   CPU ID: GenuineIntel: Intel(R) Core(TM) i5-7267U CPU @ 3.10GHz
-*          SSE: yes
-*         SSE2: yes
-*         SSE3: yes
-*        SSE41: yes
-*        SSE42: yes
-*          MMX: yes
-*       MMXEXT: yes
-*        3DNOW: no
-*     3DNOWEXT: no
-*         CMOV: yes
-*          TSC: yes
-*INVARIANT TSC: yes
-*          FPU: yes
-*          PRO: yes
-*           HT: no
+*   CPU ID: ARM64v8
+*          VFP: no
+*         NEON: no
 -------------------------
 Registering ResourceManager for type Texture
-GLES2RenderSystem::_createRenderWindow "OgreApplication", 320x480 windowed  miscParams: FSAA=4 Video Mode=320x480 colourDepth=32 contentScalingFactor=2.0 externalViewHandle=140460906550864 externalWindowHandle=140460903407024
+GLES2RenderSystem::_createRenderWindow "OgreApplication", 320x480 windowed  miscParams: FSAA=4 Video Mode=320x480 colourDepth=32 contentScalingFactor=2.0 externalViewHandle=4330119488 externalWindowHandle=4331428560
 iOS: Using an external window handle
 iOS: Using an external view handle
 iOS: Window created 320 x 480 with backing store size 320 x 480 using content scaling factor 1.0
 GL_VERSION = 3.0.0.0
 GL_VENDOR = Apple Inc.
-GL_RENDERER = Apple Software Renderer
+GL_RENDERER = Apple A7 GPU
 GL_EXTENSIONS = GL_OES_standard_derivatives GL_EXT_color_buffer_half_float GL_EXT_debug_label GL_EXT_debug_marker GL_EXT_pvrtc_sRGB GL_EXT_read_format_bgra GL_EXT_separate_shader_objects GL_EXT_shader_framebuffer_fetch GL_EXT_shader_texture_lod GL_EXT_shadow_samplers GL_EXT_texture_filter_anisotropic GL_APPLE_clip_distance GL_APPLE_color_buffer_packed_float GL_APPLE_copy_texture_levels GL_APPLE_rgb_422 GL_APPLE_texture_format_BGRA8888 GL_IMG_read_format GL_IMG_texture_compression_pvrtc
 **************************************
 *** OpenGL ES 2.x Renderer Started ***
@@ -386,7 +380,7 @@ RenderSystem capabilities
 -------------------------
 RenderSystem Name: OpenGL ES 2.x Rendering Subsystem
 GPU Vendor: apple
-Device Name: Apple Software Renderer
+Device Name: Apple A7 GPU
 Driver Version: 3.0.0.0
 * Fixed function pipeline: no
 * Anisotropic texture filtering: yes
@@ -405,21 +399,21 @@ Driver Version: 3.0.0.0
 * Number of integer constants for fragment programs: 896
 * Number of boolean constants for fragment programs: 896
 * Geometry programs: no
-* Number of floating-point constants for geometry programs: 29535
-* Number of integer constants for geometry programs: 18258
-* Number of boolean constants for geometry programs: 8258
+* Number of floating-point constants for geometry programs: 25963
+* Number of integer constants for geometry programs: 8306
+* Number of boolean constants for geometry programs: 19527
 * Tessellation Hull programs: no
-* Number of floating-point constants for tessellation hull programs: 29556
-* Number of integer constants for tessellation hull programs: 18208
-* Number of boolean constants for tessellation hull programs: 24396
+* Number of floating-point constants for tessellation hull programs: 29793
+* Number of integer constants for tessellation hull programs: 24421
+* Number of boolean constants for tessellation hull programs: 26739
 * Tessellation Domain programs: no
-* Number of floating-point constants for tessellation domain programs: 22597
-* Number of integer constants for tessellation domain programs: 24404
-* Number of boolean constants for tessellation domain programs: 26739
+* Number of floating-point constants for tessellation domain programs: 25697
+* Number of integer constants for tessellation domain programs: 29285
+* Number of boolean constants for tessellation domain programs: 28511
 * Compute programs: no
-* Number of floating-point constants for compute programs: 25697
-* Number of integer constants for compute programs: 29285
-* Number of boolean constants for compute programs: 26207
+* Number of floating-point constants for compute programs: 27234
+* Number of integer constants for compute programs: 25445
+* Number of boolean constants for compute programs: 29556
 * Supported Shader Profiles: glsl300es glsles
 * Texture Compression: yes
 - DXT: no
@@ -441,7 +435,7 @@ Driver Version: 3.0.0.0
 * Non-power-of-two textures: yes
 * 1d textures: yes
 * Volume textures: yes
-* Multiple Render Targets: 8
+* Multiple Render Targets: 4
 - With different bit depths: yes
 * Point Sprites: yes
 * Hardware Gamma: yes
@@ -465,18 +459,19 @@ Particle Renderer Type 'billboard' registered
 SceneManagerFactory for type 'OctreeSceneManager' registered.
 SceneManagerFactory for type 'BspSceneManager' registered.
 Registering ResourceManager for type BspLevel
-Added resource location '/Users/aphcoder/Library/Developer/CoreSimulator/Devices/426054DF-601C-45B6-9EA6-108EFAD6F034/data/Containers/Bundle/Application/4B66BC10-6500-4B8B-BEFC-70CEA2B9533D/ogre-ios-helloworld.app/media/models' of type 'FileSystem' to resource group 'General'
-Added resource location '/Users/aphcoder/Library/Developer/CoreSimulator/Devices/426054DF-601C-45B6-9EA6-108EFAD6F034/data/Containers/Bundle/Application/4B66BC10-6500-4B8B-BEFC-70CEA2B9533D/ogre-ios-helloworld.app/media/packs/Sinbad.zip' of type 'Zip' to resource group 'General'
-Added resource location '/Users/aphcoder/Library/Developer/CoreSimulator/Devices/426054DF-601C-45B6-9EA6-108EFAD6F034/data/Containers/Bundle/Application/4B66BC10-6500-4B8B-BEFC-70CEA2B9533D/ogre-ios-helloworld.app/Media/materials/programs/GLSLES' of type 'FileSystem' to resource group 'General'
-Added resource location '/Users/aphcoder/Library/Developer/CoreSimulator/Devices/426054DF-601C-45B6-9EA6-108EFAD6F034/data/Containers/Bundle/Application/4B66BC10-6500-4B8B-BEFC-70CEA2B9533D/ogre-ios-helloworld.app/Media/RTShaderLib/materials' of type 'FileSystem' to resource group 'General'
-Added resource location '/Users/aphcoder/Library/Developer/CoreSimulator/Devices/426054DF-601C-45B6-9EA6-108EFAD6F034/data/Containers/Bundle/Application/4B66BC10-6500-4B8B-BEFC-70CEA2B9533D/ogre-ios-helloworld.app/Media/RTShaderLib/GLSL' of type 'FileSystem' to resource group 'General'
-Added resource location '/Users/aphcoder/Library/Developer/CoreSimulator/Devices/426054DF-601C-45B6-9EA6-108EFAD6F034/data/Containers/Bundle/Application/4B66BC10-6500-4B8B-BEFC-70CEA2B9533D/ogre-ios-helloworld.app/Media/RTShaderLib/GLSLES' of type 'FileSystem' to resource group 'General'
+Added resource location '/var/containers/Bundle/Application/4DDC3251-318C-41D6-8E8B-750B3D810899/ogre-ios-helloworld.app/Media/models' of type 'FileSystem' to resource group 'General'
+Added resource location '/var/containers/Bundle/Application/4DDC3251-318C-41D6-8E8B-750B3D810899/ogre-ios-helloworld.app/Media/packs' of type 'FileSystem' to resource group 'General'
+Added resource location '/var/containers/Bundle/Application/4DDC3251-318C-41D6-8E8B-750B3D810899/ogre-ios-helloworld.app/Media/packs/Sinbad.zip' of type 'Zip' to resource group 'General'
+Added resource location '/var/containers/Bundle/Application/4DDC3251-318C-41D6-8E8B-750B3D810899/ogre-ios-helloworld.app/Media/materials/programs/GLSLES' of type 'FileSystem' to resource group 'General'
+Added resource location '/var/containers/Bundle/Application/4DDC3251-318C-41D6-8E8B-750B3D810899/ogre-ios-helloworld.app/Media/RTShaderLib/materials' of type 'FileSystem' to resource group 'General'
+Added resource location '/var/containers/Bundle/Application/4DDC3251-318C-41D6-8E8B-750B3D810899/ogre-ios-helloworld.app/Media/RTShaderLib/GLSL' of type 'FileSystem' to resource group 'General'
+Added resource location '/var/containers/Bundle/Application/4DDC3251-318C-41D6-8E8B-750B3D810899/ogre-ios-helloworld.app/Media/RTShaderLib/GLSLES' of type 'FileSystem' to resource group 'General'
 Parsing scripts for resource group General
 Parsing script Sinbad.material
-Parsing script HardwareSkinningShadow.material
-Parsing script TriplanarTexturing.material
-Parsing script RTShaderSystem.material
 Parsing script DualQuaternionSkinning_Shadow.material
+Parsing script HardwareSkinningShadow.material
+Parsing script RTShaderSystem.material
+Parsing script TriplanarTexturing.material
 Finished parsing scripts for resource group General
 Creating resources for group General
 All done
@@ -511,6 +506,7 @@ WARNING: Could not find vertex shader attribute 'blendIndices' to match BindAttr
 WARNING: Could not find vertex shader attribute 'uv6' to match BindAttributeLocation request.
 WARNING: Could not find vertex shader attribute 'uv2' to match BindAttributeLocation request.
 WARNING: Could not find vertex shader attribute 'colour' to match BindAttributeLocation request.
+
 WARNING: Could not find vertex shader attribute 'position' to match BindAttributeLocation request.
 WARNING: Could not find vertex shader attribute 'tangent' to match BindAttributeLocation request.
 WARNING: Could not find vertex shader attribute 'uv3' to match BindAttributeLocation request.
@@ -543,6 +539,7 @@ WARNING: Could not find vertex shader attribute 'blendIndices' to match BindAttr
 WARNING: Could not find vertex shader attribute 'uv6' to match BindAttributeLocation request.
 WARNING: Could not find vertex shader attribute 'uv2' to match BindAttributeLocation request.
 WARNING: Could not find vertex shader attribute 'colour' to match BindAttributeLocation request.
+
 WARNING: Could not find vertex shader attribute 'position' to match BindAttributeLocation request.
 WARNING: Could not find vertex shader attribute 'tangent' to match BindAttributeLocation request.
 WARNING: Could not find vertex shader attribute 'uv3' to match BindAttributeLocation request.
