@@ -7,6 +7,20 @@
 #include <OgreWindowEventUtilities.h>
 #include <OgreSceneNode.h>
 
+#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE || OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
+#include <macUtils.h>
+
+bool FileExists(std::string filepath) {
+    FILE* fp = NULL;
+    fp = fopen(filepath.c_str(), "rb");
+    if(fp != NULL) {
+        fclose(fp);
+        return true;
+    }
+    return false;
+}
+#endif
+
 
 OgreApplication::OgreApplication(): OgreBites::ApplicationContext("OgreApplication") {
     mRoot = 0;
@@ -14,6 +28,20 @@ OgreApplication::OgreApplication(): OgreBites::ApplicationContext("OgreApplicati
     mRenderWindow = 0;
     mCamera = 0;
     mViewport = 0;
+    
+#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE || OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
+    Ogre::String  mResourcesRoot = Ogre::macBundlePath() + "/";
+    
+    Ogre::String  mOgreCfg = mResourcesRoot + "ogre.cfg";
+    bool ret = FileExists(mOgreCfg);
+    
+    Ogre::String  mMediaFile = mResourcesRoot + "media/packs/Sinbad.zip";
+    ret = FileExists(mMediaFile);
+    
+    OgreAssert(FileExists(mOgreCfg), "ogre.cfg");
+    
+    
+ #endif
 }
 
 OgreApplication::~OgreApplication(void) {

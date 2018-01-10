@@ -32,7 +32,7 @@ Ogre source https://www.ogre3d.org/download/sdk
 1.10.11
 
 MacOS 10.13.2
-XCode 9.2
+XCode 9.2 / Build SDK 11.2 / IOS Deploy Target 11.2
 target: arm9 for idevices / x86_64 simulator
 
 
@@ -78,6 +78,7 @@ make
 sudo make install
 
 
+brew update && brew install freetype libzzip sdl2
 
 // ******************************************************
 // ogre modifications
@@ -100,21 +101,43 @@ endif ()
 // From the forum help, for the moment, the best way is to do like the CI build (ci-build.make)
 cd ogre-1.10.11
 
-// SIMU
-export IOS=TRUE
-cmake -P ci-build.cmake
-cmake --build .
+set(BUILD_DEPS TRUE)
+-DIOS_PLATFORM=SIMULATOR
 
+rm -f CMakeCache.txt && rm -fr CMakeFiles && rm -fr ogredeps && rm -fr iOSDependencies && rm -fr ZZIPlib-master && rm -fr freetype-2.6.5 && rm -fr OGRE.xcodeproj
+
+
+// SIMU
+export IOS=TRUE && cmake -P ci-build.cmake && cmake --build .
+(Generated ZZIPlib-master project)
+cp ./ogredeps/lib/*.a lib/iphonesimulator/Debug/
+
+
+
+rm -f CMakeCache.txt
+-DIOS_PLATFORM=OS
+export IOS=TRUE && cmake -P ci-build.cmake && cmake --build .
+Change ZZIPlib-master.xcode for all arm9 and remove all dynlib (dynamic)
+=> link fine (no Factory missing for ZIP)
+
+
+cmake -DIOS_PLATFORM=OS -G Xcode .
 
 /* Instead of specific cmake commands:
 // SIMU
-cmake -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain/ios.toolchain.xcode.cmake -DIOS_PLATFORM=SIMULATOR -DFREETYPE_FT2BUILD_INCLUDE_DIR=/usr/local/freetype/include/freetype2 -G Xcode .
+export IOS=TRUE &&
+cmake -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain/ios.toolchain.xcode.cmake -DIOS_PLATFORM=SIMULATOR -DFREETYPE_FT2BUILD_INCLUDE_DIR=/usr/local/freetype/include/freetype2 -DOGRE_BUILD_DEPENDENCIES=TRUE -DOGRE_DEPENDENCIES_DIR="/Users/aphcoder/ogre/ogre-1.10.11/MyDeps" -G Xcode .
+cmake --build .
+(missing Overlay and OgreBites Should pass -DOGRE_BUILD_DEPENDENCIES=TRUE -DOGRE_DEPENDENCIES_DIR="./MyDeps" )
 
 // IOS Generic Device
 cmake -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain/ios.toolchain.xcode.cmake -DFREETYPE_FT2BUILD_INCLUDE_DIR=/usr/local/freetype/include/freetype2 -G Xcode .
+-DOGRE_BUILD_DEPENDENCIES=TRUE
 
 // IOS DEVICES
-cmake -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain/ios.toolchain.xcode.cmake -DIOS_PLATFORM=OS -DFREETYPE_FT2BUILD_INCLUDE_DIR=/usr/local/freetype/include/freetype2 -G Xcode .
+cmake -DCMAKE_TOOLCHAIN_FILE=CMake/toolchain/ios.toolchain.xcode.cmake -DIOS_PLATFORM=OS -DFREETYPE_FT2BUILD_INCLUDE_DIR=/usr/local/freetype/include/freetype2 -DOGRE_BUILD_DEPENDENCIES=TRUE -DOGRE_DEPENDENCIES_DIR="./MyDeps" -G Xcode .
+
+-DOGRE_DEPENDENCIES_DIR="/Users/aphcoder/ogre/ogre-1.10.11/MyDeps"
 
 // MAC 64bits:
 cmake -D OGRE_BUILD_PLATFORM_APPLE_IOS=1 -G Xcode ..
