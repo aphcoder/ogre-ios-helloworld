@@ -9,17 +9,21 @@
 
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE || OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
 #include <macUtils.h>
+# else
+#include <direct.h>
+#endif
 
 bool FileExists(std::string filepath) {
+	return Ogre::FileSystemLayer::fileExists(filepath);
+	/*
     FILE* fp = NULL;
     fp = fopen(filepath.c_str(), "rb");
     if(fp != NULL) {
         fclose(fp);
         return true;
     }
-    return false;
+    return false;*/
 }
-#endif
 
 
 OgreApplication::OgreApplication(): OgreBites::ApplicationContext("OgreApplication") {
@@ -30,18 +34,19 @@ OgreApplication::OgreApplication(): OgreBites::ApplicationContext("OgreApplicati
     mViewport = 0;
     
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE || OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
-    Ogre::String  mResourcesRoot = Ogre::macBundlePath() + "/";
-    
-    Ogre::String  mOgreCfg = mResourcesRoot + "ogre.cfg";
+    Ogre::String mResourcesRoot = Ogre::macBundlePath() + "/";
+#else
+	Ogre::String mResourcesRoot = _getcwd(NULL, 0);
+	mResourcesRoot += "\\";
+#endif
+    Ogre::String mOgreCfg = mResourcesRoot + "ogre.cfg";
     bool ret = FileExists(mOgreCfg);
     
-    Ogre::String  mMediaFile = mResourcesRoot + "media/packs/Sinbad.zip";
+    Ogre::String mMediaFile = mResourcesRoot + "Media/packs/Sinbad.zip";
     ret = FileExists(mMediaFile);
     
-    OgreAssert(FileExists(mOgreCfg), "ogre.cfg");
-    
-    
- #endif
+   // OgreAssert(FileExists(mOgreCfg), "ogre.cfg");
+	
 }
 
 OgreApplication::~OgreApplication(void) {
@@ -49,9 +54,11 @@ OgreApplication::~OgreApplication(void) {
 }
 
 void OgreApplication::setup() {
-    
+#if OGRE_PLATFORM == OGRE_PLATFORM_APPLE || OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
     mRoot->setRenderSystem(mRoot->getRenderSystemByName("OpenGL ES 2.x Rendering Subsystem"));
-
+#else
+	mRoot->setRenderSystem(mRoot->getRenderSystemByName("Direct3D11 Rendering Subsystem"));
+#endif
     //Process like: OgreBites::ApplicationContext::setup();
     mRoot->initialise(false);
     
@@ -65,17 +72,19 @@ void OgreApplication::setup() {
     miscParams["externalViewHandle"] = Ogre::StringConverter::toString((unsigned long)mUiView);
     
     NativeWindowPair ret = createWindow(mAppName, mWidth, mHeight, miscParams);
-    mRenderWindow = ret.render;
 #else
-    createWindow(mAppName);
+	NativeWindowPair ret = createWindow(mAppName);
 #endif
-    
+	mRenderWindow = ret.render;
+
     locateResources();
     initialiseRTShaderSystem();
     loadResources();
     
     // adds context as listener to process context-level (above the sample level) events
     mRoot->addFrameListener(this);
+
+	createScene();
 }
 
 void OgreApplication::start(void* uiWindow, void* uiView, unsigned int width, unsigned int height) {
@@ -86,8 +95,6 @@ void OgreApplication::start(void* uiWindow, void* uiView, unsigned int width, un
     mHeight = height;
     
     ApplicationContext::initApp();
-
-    createScene();
 }
 
 void OgreApplication::stop() {
@@ -156,5 +163,5 @@ void OgreApplication::createScene() {
     
     // Create a light
     Ogre::Light *light = mSceneManager->createLight("MainLight");
-    light->setPosition(20, 80, 50);
+    light->setPosition(Vector3(20, 80, 50));
 }
