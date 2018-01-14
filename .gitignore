@@ -17,3 +17,14 @@ profile
 DerivedData
 .idea/
 
+# VS
+.vs/
+ipch/
+*.ipch
+Debug/
+Release/
+x64/
+
+
+
+

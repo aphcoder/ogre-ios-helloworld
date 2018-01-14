@@ -13,7 +13,7 @@ IOS ogre helloworld sample for ogremesh display
 * Opened a forum thread for community help at https://forums.ogre3d.org/viewtopic.php?f=21&t=93868
 
 
-# Status
+# STATUS
 
 
 
@@ -24,9 +24,15 @@ IOS ogre helloworld sample for ogremesh display
     * The media resources is "Media" and not "media"
     * Very tricky part to compile first for SIMU, keep track of some generated stuffs, clean and build for Device
 
+* For Win10 VS Community 2017 (Debug x64) viewport and Sinbad are rendered properly
+    * Convenient for people working with Win environment (VS Studio, Blender)
+    * Debug x64 (for development env purpose only)
 
 
-## ogre 1.10.11 compilation
+
+# COMPILATION
+
+## ogre 1.10.11 compilation for IOS
 
 
 ```bash
@@ -226,10 +232,50 @@ xcrun -sdk iphoneos lipo -info libOgreMainStatic.a
 ```
 
 
-## Sample
+
+
+
+## ogre 1.10.11 compilation for Win10 / Direct X11
+
+Compilation is much easier for Win10 / VS Community 2017
+
+
+```bash
+
+Install VS Studio Community 2017
+
+Install Cmake GUI 3.10.1
+
+
+Open Cmake GUI 3.10.1 and set:
+VS Studio 15 2017 Win64
+Native Compiler
+
+ogre-1.10.11
+ogre-1.10.11/build
+
+
+Open Ogre.sln with VS Studio then compile ALL
+
+
+Check .lib:
+$(OGRE_SDK_ROOT)\build\lib\Debug\*.lib
+
+Chek for .dll:
+$(OGRE_SDK_ROOT)\build\bin\debug\*.dll
 
 
 ```
+
+
+
+
+# SAMPLE
+
+
+## xcode
+
+```bash
 References:
 
 https://github.com/cloderic/ios-ogre
@@ -253,14 +299,28 @@ $(OGRE_SDK_ROOT)/ZZIPlib-master
 
 ```
 
+## VS 2017
 
-## TODO
+* [VS settings instructions]()
+
+```bash
+
+Should use (Debug x64):
+plugins_d.cfg
+ogre.cfg
+resources_d.cfg
 
 
 
-## Last run logs/status
+```
+
+# TODO
 
 
+
+# Last run logs/status
+
+## xcode
 
 ```
 2018-01-11 00:06:56.601028+0100 ogre-ios-helloworld[835:232235] [DYMTLInitPlatform] platform initialization successful
@@ -550,5 +610,280 @@ WARNING: Could not find vertex shader attribute 'binormal' to match BindAttribut
 ```
 
 
+## VS 2017
 
 
+```bash
+
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\ogre-helloworld.vs.exe'. Symbols loaded.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Program Files\AVAST Software\Avast\x64\aswhooka.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\OgreBites_d.dll'. Symbols loaded.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\OgreMain_d.dll'. Symbols loaded.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\user32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\gdi32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\gdi32full.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\msvcp_win.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbase.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\shell32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\msvcrt.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\cfgmgr32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\SHCore.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\combase.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\bcryptprimitives.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\windows.storage.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\advapi32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\sechost.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\shlwapi.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\kernel.appcore.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\powrprof.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\profapi.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\OgreRTShaderSystem_d.dll'. Symbols loaded.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\msvcp140d.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140d.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\OgreOverlay_d.dll'. Symbols loaded.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\SDL2.dll'. Symbols loaded.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\imm32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ole32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\oleaut32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\zlib.dll'. Symbols loaded.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\winmm.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\version.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\winmmbase.dll'. Cannot find or open the PDB file.
+Ogre: Creating resource group General
+Ogre: Creating resource group Internal
+Ogre: Creating resource group Autodetect
+Ogre: SceneManagerFactory for type 'DefaultSceneManager' registered.
+Ogre: Registering ResourceManager for type Material
+Ogre: Registering ResourceManager for type Mesh
+Ogre: Registering ResourceManager for type Skeleton
+Ogre: MovableObjectFactory for type 'ParticleSystem' registered.
+Ogre: ArchiveFactory for archive type FileSystem registered.
+Ogre: ArchiveFactory for archive type Zip registered.
+Ogre: ArchiveFactory for archive type EmbeddedZip registered.
+Ogre: DDS codec registering
+Ogre: ETC codec registering
+Ogre: stb_image - v2.15 - public domain JPEG/PNG reader
+Ogre: Supported formats: jpeg,jpg,png,bmp,psd,tga,gif,pic,ppm,pgm,hdr
+Ogre: Registering ResourceManager for type HighLevelGpuProgram
+Ogre: Registering ResourceManager for type Compositor
+Ogre: MovableObjectFactory for type 'Entity' registered.
+Ogre: MovableObjectFactory for type 'Light' registered.
+Ogre: MovableObjectFactory for type 'BillboardSet' registered.
+Ogre: MovableObjectFactory for type 'ManualObject' registered.
+Ogre: MovableObjectFactory for type 'BillboardChain' registered.
+Ogre: MovableObjectFactory for type 'RibbonTrail' registered.
+Ogre: Loading library RenderSystem_Direct3D11_d
+Ogre: Installing plugin: D3D11 RenderSystem
+Ogre: D3D11: Direct3D11 Rendering Subsystem created.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\RenderSystem_Direct3D11_d.dll'. Symbols loaded.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\d3d11.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\dxgi.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\D3DCompiler_47.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\cryptsp.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ResourcePolicyClient.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Unloaded 'C:\Windows\System32\ResourcePolicyClient.dll'
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\igd10iumd64.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\bcrypt.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ncrypt.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ntasn1.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\igdusc64.dll'. Cannot find or open the PDB file.
+Ogre: D3D11: Driver Detection Starts
+Ogre: D3D11: "Intel(R) HD Graphics 4000"
+Ogre: D3D11: "Microsoft Basic Render Driver (software)"
+Ogre: D3D11: Driver Detection Ends
+Ogre: Plugin successfully installed
+Ogre: *-*-* OGRE Initialising
+Ogre: *-*-* Version 1.10.11 (Xalafu)
+Ogre: OverlayElementFactory for type Panel registered.
+Ogre: OverlayElementFactory for type BorderPanel registered.
+Ogre: OverlayElementFactory for type TextArea registered.
+Ogre: Registering ResourceManager for type Font
+Ogre: D3D11: RenderSystem Option: Allow NVPerfHUD = No
+Ogre: D3D11: RenderSystem Option: Backbuffer Count = Auto
+Ogre: D3D11: RenderSystem Option: Driver type = Hardware
+Ogre: D3D11: RenderSystem Option: FSAA = 1
+Ogre: D3D11: RenderSystem Option: Floating-point mode = Fastest
+Ogre: D3D11: RenderSystem Option: Full Screen = No
+Ogre: D3D11: RenderSystem Option: Information Queue Exceptions Bottom Level = Info (exception on any message)
+Ogre: D3D11: RenderSystem Option: Max Requested Feature Levels = 11.0
+Ogre: D3D11: RenderSystem Option: Min Requested Feature Levels = 9.1
+Ogre: D3D11: RenderSystem Option: Rendering Device = (default)
+Ogre: D3D11: RenderSystem Option: VSync = No
+Ogre: D3D11: RenderSystem Option: VSync Interval = 1
+Ogre: D3D11: RenderSystem Option: Video Mode = 800 x 600 @ 32-bit colour
+Ogre: D3D11: RenderSystem Option: sRGB Gamma Conversion = No
+Ogre: CPU Identifier & Features
+Ogre: -------------------------
+Ogre:  *   CPU ID: GenuineIntel: Intel(R) Core(TM) i5-3320M CPU @ 2.60GHz
+Ogre:  *          SSE: yes
+Ogre:  *         SSE2: yes
+Ogre:  *         SSE3: yes
+Ogre:  *        SSE41: yes
+Ogre:  *        SSE42: yes
+Ogre:  *          MMX: yes
+Ogre:  *       MMXEXT: yes
+Ogre:  *        3DNOW: no
+Ogre:  *     3DNOWEXT: no
+Ogre:  *         CMOV: yes
+Ogre:  *          TSC: yes
+Ogre:  *INVARIANT TSC: yes
+Ogre:  *          FPU: yes
+Ogre:  *          PRO: yes
+Ogre:  *           HT: no
+Ogre: -------------------------
+Ogre: D3D11: Subsystem Initialising
+'ogre-helloworld.vs.exe' (Win32): Unloaded 'C:\Windows\System32\igdusc64.dll'
+'ogre-helloworld.vs.exe' (Win32): Unloaded 'C:\Windows\System32\ntasn1.dll'
+'ogre-helloworld.vs.exe' (Win32): Unloaded 'C:\Windows\System32\ncrypt.dll'
+'ogre-helloworld.vs.exe' (Win32): Unloaded 'C:\Windows\System32\igd10iumd64.dll'
+Ogre: D3D11: Driver Detection Starts
+Ogre: D3D11: "Intel(R) HD Graphics 4000"
+Ogre: D3D11: "Microsoft Basic Render Driver (software)"
+Ogre: D3D11: Driver Detection Ends
+Ogre: D3D11: Requested "(default)", selected "Intel(R) HD Graphics 4000"
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\DXGIDebug.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\igd10iumd64.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ncrypt.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ntasn1.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\d3d11_3SDKLayers.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\igdusc64.dll'. Cannot find or open the PDB file.
+Ogre: ***************************************
+Ogre: *** D3D11: Subsystem Initialized OK ***
+Ogre: ***************************************
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\uxtheme.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\msctf.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\dwmapi.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\clbcatq.dll'. Cannot find or open the PDB file.
+Ogre: D3D11RenderSystem::_createRenderWindow "OgreApplication", 800x600 windowed  miscParams: FSAA=1 externalWindowHandle=15861956 gamma=No vsync=No 
+Ogre: D3D11: Created D3D11 Rendering Window 'OgreApplication' : 800x600, 32bpp
+Ogre: Warning: D3D11: disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
+Ogre: Registering ResourceManager for type Texture
+Ogre: Registering ResourceManager for type GpuProgram
+Ogre: RenderSystem capabilities
+Ogre: -------------------------
+Ogre: RenderSystem Name: Direct3D11 Rendering Subsystem
+Ogre: GPU Vendor: intel
+Ogre: Device Name: Intel(R) HD Graphics 4000
+Ogre: Driver Version: 10.18.10.4425
+Ogre:  * Fixed function pipeline: no
+Ogre:  * Anisotropic texture filtering: yes
+Ogre:  * Cube mapping: yes
+Ogre:  * Hardware stencil buffer: yes
+Ogre:    - Stencil depth: 8
+Ogre:    - Two sided stencil support: yes
+Ogre:    - Wrap stencil values: yes
+Ogre:  * 32-bit index buffers: yes
+Ogre:  * Vertex programs: yes
+Ogre:  * Number of floating-point constants for vertex programs: 512
+Ogre:  * Number of integer constants for vertex programs: 16
+Ogre:  * Number of boolean constants for vertex programs: 16
+Ogre:  * Fragment programs: yes
+Ogre:  * Number of floating-point constants for fragment programs: 512
+Ogre:  * Number of integer constants for fragment programs: 16
+Ogre:  * Number of boolean constants for fragment programs: 16
+Ogre:  * Geometry programs: yes
+Ogre:  * Number of floating-point constants for geometry programs: 512
+Ogre:  * Number of integer constants for geometry programs: 16
+Ogre:  * Number of boolean constants for geometry programs: 16
+Ogre:  * Tessellation Hull programs: yes
+Ogre:  * Number of floating-point constants for tessellation hull programs: 512
+Ogre:  * Number of integer constants for tessellation hull programs: 16
+Ogre:  * Number of boolean constants for tessellation hull programs: 16
+Ogre:  * Tessellation Domain programs: yes
+Ogre:  * Number of floating-point constants for tessellation domain programs: 512
+Ogre:  * Number of integer constants for tessellation domain programs: 16
+Ogre:  * Number of boolean constants for tessellation domain programs: 16
+Ogre:  * Compute programs: yes
+Ogre:  * Number of floating-point constants for compute programs: 512
+Ogre:  * Number of integer constants for compute programs: 16
+Ogre:  * Number of boolean constants for compute programs: 16
+Ogre:  * Supported Shader Profiles: cs_4_0 cs_4_1 cs_5_0 ds_5_0 gs_4_0 gs_4_1 gs_5_0 hlsl hs_5_0 ps_2_0 ps_2_a ps_2_b ps_2_x ps_3_0 ps_3_x ps_4_0 ps_4_0_level_9_1 ps_4_0_level_9_3 ps_4_1 ps_5_0 vs_2_0 vs_2_a vs_2_x vs_3_0 vs_4_0 vs_4_0_level_9_1 vs_4_0_level_9_3 vs_4_1 vs_5_0
+Ogre:  * Texture Compression: yes
+Ogre:    - DXT: yes
+Ogre:    - VTC: no
+Ogre:    - PVRTC: no
+Ogre:    - ATC: no
+Ogre:    - ETC1: no
+Ogre:    - ETC2: no
+Ogre:    - BC4/BC5: no
+Ogre:    - BC6H/BC7: yes
+Ogre:    - ASTC: no
+Ogre:    - Mipmaps for compressed formats: yes
+Ogre:  * Hardware Occlusion Query: yes
+Ogre:  * User clip planes: yes
+Ogre:  * VET_UBYTE4 vertex element type: yes
+Ogre:  * Infinite far plane projection: yes
+Ogre:  * Hardware render-to-texture: yes
+Ogre:  * Floating point textures: yes
+Ogre:  * Non-power-of-two textures: yes
+Ogre:  * 1d textures: yes
+Ogre:  * Volume textures: yes
+Ogre:  * Multiple Render Targets: 8
+Ogre:    - With different bit depths: yes
+Ogre:  * Point Sprites: yes
+Ogre:  * Hardware Gamma: no
+Ogre:  * Extended point parameters: yes
+Ogre:  * Max Point Size: 256
+Ogre:  * Vertex texture fetch: yes
+Ogre:  * Number of texture units: 16
+Ogre:  * Number of vertex attributes: 32
+Ogre:  * Stencil buffer depth: 8
+Ogre:  * Number of vertex blend matrices: 0
+Ogre:    - Max vertex textures: 4
+Ogre:    - Vertex textures shared: no
+Ogre:  * Render to Vertex Buffer : yes
+Ogre:  * Hardware Atomic Counters: no
+Ogre: DefaultWorkQueue('Root') initialising on thread main.
+Ogre: Particle Renderer Type 'billboard' registered
+Ogre: Added resource location 'Media/models' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/packs' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/RTShaderLib' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/RTShaderLib/Cg' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/RTShaderLib/GLSL' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/RTShaderLib/GLSLES' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/RTShaderLib/HLSL' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/RTShaderLib/materials' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/packs/Sinbad.zip' of type 'Zip' to resource group 'General'
+Ogre: Added resource location 'Media/models/materials/programs/HLSL' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/models/materials/programs/HLSL_Cg' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/models/RTShaderLib/materials' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/models/RTShaderLib/HLSL' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/models/RTShaderLib/HLSL_Cg' of type 'FileSystem' to resource group 'General'
+Ogre: Parsing scripts for resource group Autodetect
+Ogre: Finished parsing scripts for resource group Autodetect
+Ogre: Creating resources for group Autodetect
+Ogre: All done
+Ogre: Parsing scripts for resource group General
+Ogre: Parsing script DualQuaternionSkinning_Shadow.material
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\rsaenh.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\cryptbase.dll'. Cannot find or open the PDB file.
+Ogre: Parsing script HardwareSkinningShadow.material
+Ogre: Parsing script RTShaderSystem.material
+Ogre: Parsing script TriplanarTexturing.material
+Ogre: Parsing script Sinbad.material
+Ogre: Finished parsing scripts for resource group General
+Ogre: Creating resources for group General
+Ogre: All done
+Ogre: Parsing scripts for resource group Internal
+Ogre: Finished parsing scripts for resource group Internal
+Ogre: Creating resources for group Internal
+Ogre: All done
+Ogre: Mesh: Loading Sinbad.mesh.
+Ogre: Skeleton: Loading Sinbad.skeleton
+Ogre: Texture: sinbad_body.tga: Loading 1 faces(PF_B8G8R8,512x512x1) with 9 generated mipmaps from Image. Internal format is PF_A8B8G8R8,512x512x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sinbad_body.tga' with 9 mip map levels
+Ogre: Texture: sinbad_clothes.tga: Loading 1 faces(PF_B8G8R8,512x512x1) with 9 generated mipmaps from Image. Internal format is PF_A8B8G8R8,512x512x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sinbad_clothes.tga' with 9 mip map levels
+Ogre: Texture: sinbad_sword.tga: Loading 1 faces(PF_B8G8R8,256x256x1) with 8 generated mipmaps from Image. Internal format is PF_A8B8G8R8,256x256x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sinbad_sword.tga' with 8 mip map levels
+Ogre: Warning: the mesh 'Sinbad.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+
+
+```
