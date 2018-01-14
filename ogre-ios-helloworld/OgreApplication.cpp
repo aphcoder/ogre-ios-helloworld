@@ -13,16 +13,8 @@
 #include <direct.h>
 #endif
 
-bool FileExists(std::string filepath) {
+bool fileExists(std::string filepath) {
 	return Ogre::FileSystemLayer::fileExists(filepath);
-	/*
-    FILE* fp = NULL;
-    fp = fopen(filepath.c_str(), "rb");
-    if(fp != NULL) {
-        fclose(fp);
-        return true;
-    }
-    return false;*/
 }
 
 
@@ -40,12 +32,12 @@ OgreApplication::OgreApplication(): OgreBites::ApplicationContext("OgreApplicati
 	mResourcesRoot += "\\";
 #endif
     Ogre::String mOgreCfg = mResourcesRoot + "ogre.cfg";
-    bool ret = FileExists(mOgreCfg);
+    bool ret = fileExists(mOgreCfg);
     
     Ogre::String mMediaFile = mResourcesRoot + "Media/packs/Sinbad.zip";
-    ret = FileExists(mMediaFile);
+    ret = fileExists(mMediaFile);
     
-   // OgreAssert(FileExists(mOgreCfg), "ogre.cfg");
+   // OgreAssert(fileExists(mOgreCfg), "ogre.cfg");
 	
 }
 
