@@ -301,7 +301,7 @@ $(OGRE_SDK_ROOT)/ZZIPlib-master
 
 ## VS 2017
 
-* [VS settings instructions]()
+* [VS settings instructions](https://github.com/aphcoder/ogre-ios-helloworld/blob/master/ogre-helloworld.vs/README.md)
 
 ```bash
 

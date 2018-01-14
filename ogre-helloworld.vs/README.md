@@ -1,18 +1,27 @@
+
+# Installation and Settings
+
+
+
+```bash
 Visual Studio Community 2017
 (Install Language English (Removed native or else))
 
 
-user Env variable define  + Reboot PC
+Win10 User Env variable define + Reboot PC
 OGRE_SDK_ROOT=G:\PROJECTS\ogre\ogre-1.10.11
 
 
 
-
-SET VS ALL PLATFORM CONFIGURATION (not only x86 or x64)
-
+---------------------------------------------------------------------
+SET VS FOR ALL PLATFORM CONFIGURATION (not only x86 or x64)
+---------------------------------------------------------------------
 
 Prefer project in Debug/x64
-Configuration Properties/C C++/SDL chgecks/No (avoid deprecated as errors)
+
+
+Configuration Properties/C C++/SDL checks
+/No (avoid deprecated as errors)
 
 
 INCLUDES PATH:
@@ -103,8 +112,14 @@ Clean
 
 
 
-Ogre outputs here:
+Ogre app runtime config/outputs here:
 -------------------------------------------------
 C:\Users\aphcoder\Documents\Ogre\OgreApplication
+
+For ogre.cfg
 For log
+
+
+
+```
 
