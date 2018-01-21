@@ -34,6 +34,7 @@ $(OGRE_SDK_ROOT)/include
 $(OGRE_SDK_ROOT)/OgreMain/include/iOS
 $(OGRE_SDK_ROOT)/Components/Bites/include
 $(OGRE_SDK_ROOT)/Components/RTShaderSystem/include
+$(OGRE_SDK_ROOT)/Components/Overlay/include
 $(OGRE_SDK_ROOT)/ZZIPlib-master
 
 
