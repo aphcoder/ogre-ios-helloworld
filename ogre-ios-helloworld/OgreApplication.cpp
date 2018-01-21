@@ -79,7 +79,7 @@ void OgreApplication::setup() {
 	createScene();
 }
 
-void OgreApplication::start(void* uiWindow, void* uiView, unsigned int width, unsigned int height) {
+void OgreApplication::start(void *uiWindow, void *uiView, unsigned int width, unsigned int height) {
 
     mUiWindow = uiWindow;
     mUiView = uiView;

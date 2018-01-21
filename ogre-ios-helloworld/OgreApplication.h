@@ -19,8 +19,8 @@ using namespace OgreBites;
 class OgreApplication : public OgreBites::ApplicationContext, public OgreBites::InputListener, public OgreBites::TrayListener {
 
 private:
-    void* mUiWindow;
-    void* mUiView;
+    void *mUiWindow;
+    void *mUiView;
     unsigned int mWidth;
     unsigned int mHeight;
     
@@ -28,14 +28,14 @@ protected:
     Ogre::SceneManager *mSceneManager;
     Ogre::RenderWindow *mRenderWindow;
     Ogre::Camera *mCamera;
-    Ogre::Viewport* mViewport;
+    Ogre::Viewport *mViewport;
 	OgreBites::TrayManager *mTrayMgr;
     
 public:
     OgreApplication(void);
     virtual ~OgreApplication(void);
     
-    void start(void* uiWindow, void* uiView, unsigned int width, unsigned int height);
+    void start(void *uiWindow, void *uiView, unsigned int width, unsigned int height);
     void stop();
     
     bool isStarted();
