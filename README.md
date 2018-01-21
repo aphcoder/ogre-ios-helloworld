@@ -17,14 +17,14 @@ IOS ogre helloworld sample for ogremesh display
 
 
 
-* For IOS SIMU, viewport and Sinbad are rendered properly
+* For IOS SIMU, viewport, Sinbad and SdkTray are rendered properly
 
-* For IOS Device, viewport and Sinbad are rendered properly
+* For IOS Device, viewport, Sinbad and SdkTray are rendered properly
     * need to sign a development team for xcode project
     * The media resources is "Media" and not "media"
     * Very tricky part to compile first for SIMU, keep track of some generated stuffs, clean and build for Device
 
-* For Win10 VS Community 2017 (Debug x64) viewport and Sinbad are rendered properly
+* For Win10 VS Community 2017 (Debug x64) viewport, Sinbad and SdkTray are rendered properly
     * Convenient for people working with Win environment (VS Studio, Blender)
     * Debug x64 (for development env purpose only)
 
@@ -295,7 +295,12 @@ $(OGRE_SDK_ROOT)/include
 $(OGRE_SDK_ROOT)/OgreMain/include/iOS
 $(OGRE_SDK_ROOT)/Components/Bites/include
 $(OGRE_SDK_ROOT)/Components/RTShaderSystem/include
+$(OGRE_SDK_ROOT)/Components/Overlay/include
 $(OGRE_SDK_ROOT)/ZZIPlib-master
+
+$(OGRE_SDK_ROOT)/build/include
+$(OGRE_SDK_ROOT)/build/Dependencies/include
+$(OGRE_SDK_ROOT)/build/Dependencies/include/SDL2
 
 ```
 
@@ -610,11 +615,13 @@ WARNING: Could not find vertex shader attribute 'binormal' to match BindAttribut
 ```
 
 
+
+
+
 ## VS 2017
 
 
 ```bash
-
 'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\ogre-helloworld.vs.exe'. Symbols loaded.
 'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. Cannot find or open the PDB file.
 'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. Cannot find or open the PDB file.
@@ -680,13 +687,17 @@ Ogre: MovableObjectFactory for type 'ManualObject' registered.
 Ogre: MovableObjectFactory for type 'BillboardChain' registered.
 Ogre: MovableObjectFactory for type 'RibbonTrail' registered.
 Ogre: Loading library RenderSystem_Direct3D11_d
-Ogre: Installing plugin: D3D11 RenderSystem
-Ogre: D3D11: Direct3D11 Rendering Subsystem created.
 'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\RenderSystem_Direct3D11_d.dll'. Symbols loaded.
 'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\d3d11.dll'. Cannot find or open the PDB file.
 'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\dxgi.dll'. Cannot find or open the PDB file.
 'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\D3DCompiler_47.dll'. Cannot find or open the PDB file.
 'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\cryptsp.dll'. Cannot find or open the PDB file.
+Ogre: Installing plugin: D3D11 RenderSystem
+Ogre: D3D11: Direct3D11 Rendering Subsystem created.
+Ogre: D3D11: Driver Detection Starts
+Ogre: D3D11: "Intel(R) HD Graphics 4000"
+Ogre: D3D11: "Microsoft Basic Render Driver (software)"
+Ogre: D3D11: Driver Detection Ends
 'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ResourcePolicyClient.dll'. Cannot find or open the PDB file.
 'ogre-helloworld.vs.exe' (Win32): Unloaded 'C:\Windows\System32\ResourcePolicyClient.dll'
 'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\igd10iumd64.dll'. Cannot find or open the PDB file.
@@ -694,10 +705,6 @@ Ogre: D3D11: Direct3D11 Rendering Subsystem created.
 'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ncrypt.dll'. Cannot find or open the PDB file.
 'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ntasn1.dll'. Cannot find or open the PDB file.
 'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\igdusc64.dll'. Cannot find or open the PDB file.
-Ogre: D3D11: Driver Detection Starts
-Ogre: D3D11: "Intel(R) HD Graphics 4000"
-Ogre: D3D11: "Microsoft Basic Render Driver (software)"
-Ogre: D3D11: Driver Detection Ends
 Ogre: Plugin successfully installed
 Ogre: *-*-* OGRE Initialising
 Ogre: *-*-* Version 1.10.11 (Xalafu)
@@ -757,11 +764,7 @@ Ogre: D3D11: Requested "(default)", selected "Intel(R) HD Graphics 4000"
 Ogre: ***************************************
 Ogre: *** D3D11: Subsystem Initialized OK ***
 Ogre: ***************************************
-'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\uxtheme.dll'. Cannot find or open the PDB file.
-'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\msctf.dll'. Cannot find or open the PDB file.
-'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\dwmapi.dll'. Cannot find or open the PDB file.
-'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\clbcatq.dll'. Cannot find or open the PDB file.
-Ogre: D3D11RenderSystem::_createRenderWindow "OgreApplication", 800x600 windowed  miscParams: FSAA=1 externalWindowHandle=15861956 gamma=No vsync=No 
+Ogre: D3D11RenderSystem::_createRenderWindow "OgreApplication", 800x600 windowed  miscParams: FSAA=1 externalWindowHandle=332358 gamma=No vsync=No 
 Ogre: D3D11: Created D3D11 Rendering Window 'OgreApplication' : 800x600, 32bpp
 Ogre: Warning: D3D11: disabling VSync in windowed mode can cause timing issues at lower frame rates, turn VSync on if you observe this problem.
 Ogre: Registering ResourceManager for type Texture
@@ -842,32 +845,71 @@ Ogre:  * Render to Vertex Buffer : yes
 Ogre:  * Hardware Atomic Counters: no
 Ogre: DefaultWorkQueue('Root') initialising on thread main.
 Ogre: Particle Renderer Type 'billboard' registered
+Ogre: Added resource location 'Media' of type 'FileSystem' to resource group 'General'
 Ogre: Added resource location 'Media/models' of type 'FileSystem' to resource group 'General'
 Ogre: Added resource location 'Media/packs' of type 'FileSystem' to resource group 'General'
-Ogre: Added resource location 'Media/RTShaderLib' of type 'FileSystem' to resource group 'General'
-Ogre: Added resource location 'Media/RTShaderLib/Cg' of type 'FileSystem' to resource group 'General'
-Ogre: Added resource location 'Media/RTShaderLib/GLSL' of type 'FileSystem' to resource group 'General'
-Ogre: Added resource location 'Media/RTShaderLib/GLSLES' of type 'FileSystem' to resource group 'General'
-Ogre: Added resource location 'Media/RTShaderLib/HLSL' of type 'FileSystem' to resource group 'General'
-Ogre: Added resource location 'Media/RTShaderLib/materials' of type 'FileSystem' to resource group 'General'
 Ogre: Added resource location 'Media/packs/Sinbad.zip' of type 'Zip' to resource group 'General'
-Ogre: Added resource location 'Media/models/materials/programs/HLSL' of type 'FileSystem' to resource group 'General'
-Ogre: Added resource location 'Media/models/materials/programs/HLSL_Cg' of type 'FileSystem' to resource group 'General'
-Ogre: Added resource location 'Media/models/RTShaderLib/materials' of type 'FileSystem' to resource group 'General'
-Ogre: Added resource location 'Media/models/RTShaderLib/HLSL' of type 'FileSystem' to resource group 'General'
-Ogre: Added resource location 'Media/models/RTShaderLib/HLSL_Cg' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/packs/SdkTrays.zip' of type 'Zip' to resource group 'General'
+Ogre: Added resource location 'Media/materials/programs/HLSL' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/materials/programs/HLSL_Cg' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/RTShaderLib/materials' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/RTShaderLib/HLSL' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/RTShaderLib/HLSL_Cg' of type 'FileSystem' to resource group 'General'
 Ogre: Parsing scripts for resource group Autodetect
 Ogre: Finished parsing scripts for resource group Autodetect
 Ogre: Creating resources for group Autodetect
 Ogre: All done
 Ogre: Parsing scripts for resource group General
+Ogre: Parsing script Sinbad.material
+Ogre: Parsing script SdkTrays.material
 Ogre: Parsing script DualQuaternionSkinning_Shadow.material
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\uxtheme.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\msctf.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\dwmapi.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\clbcatq.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\TextInputFramework.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\CoreUIComponents.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\CoreMessaging.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ntmarta.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\WinTypes.dll'. Cannot find or open the PDB file.
 'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\rsaenh.dll'. Cannot find or open the PDB file.
 'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\cryptbase.dll'. Cannot find or open the PDB file.
 Ogre: Parsing script HardwareSkinningShadow.material
 Ogre: Parsing script RTShaderSystem.material
 Ogre: Parsing script TriplanarTexturing.material
-Ogre: Parsing script Sinbad.material
+Ogre: Parsing script SdkTrays.fontdef
+Ogre: Parsing script SdkTrays.overlay
+Ogre: Bad element attribute line: '# you can offset the image to change the cursor "hotspot"' for element SdkTrays/Cursor in overlay 
+Ogre: Texture: sdk_cursor.png: Loading 1 faces(PF_A8B8G8R8,32x32x1) with 5 generated mipmaps from Image. Internal format is PF_A8B8G8R8,32x32x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sdk_cursor.png' with 5 mip map levels
+Ogre: Texture: sdk_tray.png: Loading 1 faces(PF_A8B8G8R8,64x64x1) with 6 generated mipmaps from Image. Internal format is PF_A8B8G8R8,64x64x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sdk_tray.png' with 6 mip map levels
+Ogre: Texture: sdk_button_up.png: Loading 1 faces(PF_A8B8G8R8,128x32x1) with 7 generated mipmaps from Image. Internal format is PF_A8B8G8R8,128x32x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sdk_button_up.png' with 7 mip map levels
+Ogre: Texture: sdk_text_box.png: Loading 1 faces(PF_A8B8G8R8,32x32x1) with 5 generated mipmaps from Image. Internal format is PF_A8B8G8R8,32x32x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sdk_text_box.png' with 5 mip map levels
+Ogre: Texture: sdk_mini_tray.png: Loading 1 faces(PF_A8B8G8R8,32x32x1) with 5 generated mipmaps from Image. Internal format is PF_A8B8G8R8,32x32x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sdk_mini_tray.png' with 5 mip map levels
+Ogre: Texture: sdk_track.png: Loading 1 faces(PF_A8B8G8R8,16x32x1) with 5 generated mipmaps from Image. Internal format is PF_A8B8G8R8,16x32x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sdk_track.png' with 5 mip map levels
+Ogre: Texture: sdk_handle.png: Loading 1 faces(PF_A8B8G8R8,16x16x1) with 4 generated mipmaps from Image. Internal format is PF_A8B8G8R8,16x16x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sdk_handle.png' with 4 mip map levels
+Ogre: Texture: sdk_mini_text_box.png: Loading 1 faces(PF_A8B8G8R8,32x32x1) with 5 generated mipmaps from Image. Internal format is PF_A8B8G8R8,32x32x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sdk_mini_text_box.png' with 5 mip map levels
+Ogre: Texture: sdk_label.png: Loading 1 faces(PF_A8B8G8R8,32x32x1) with 5 generated mipmaps from Image. Internal format is PF_A8B8G8R8,32x32x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sdk_label.png' with 5 mip map levels
+Ogre: Texture: sdk_separator.png: Loading 1 faces(PF_A8B8G8R8,64x16x1) with 6 generated mipmaps from Image. Internal format is PF_A8B8G8R8,64x16x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sdk_separator.png' with 6 mip map levels
+Ogre: Texture: sdk_logo.png: Loading 1 faces(PF_A8B8G8R8,128x64x1) with 7 generated mipmaps from Image. Internal format is PF_A8B8G8R8,128x64x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sdk_logo.png' with 7 mip map levels
+Ogre: Texture: sdk_shade.png: Loading 1 faces(PF_A8B8G8R8,64x48x1) with 6 generated mipmaps from Image. Internal format is PF_A8B8G8R8,64x48x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sdk_shade.png' with 6 mip map levels
+Ogre: Texture: sdk_frame.png: Loading 1 faces(PF_A8B8G8R8,32x32x1) with 5 generated mipmaps from Image. Internal format is PF_A8B8G8R8,32x32x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sdk_frame.png' with 5 mip map levels
+Ogre: Texture: sdk_mini_text_box_over.png: Loading 1 faces(PF_A8B8G8R8,32x32x1) with 5 generated mipmaps from Image. Internal format is PF_A8B8G8R8,32x32x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sdk_mini_text_box_over.png' with 5 mip map levels
+Ogre: Texture: sdk_pulse.png: Loading 1 faces(PF_B8G8R8,8x1x1) with 3 generated mipmaps from Image. Internal format is PF_A8B8G8R8,8x1x1.
+Ogre: D3D11: Loading 2D Texture, image name : 'sdk_pulse.png' with 3 mip map levels
 Ogre: Finished parsing scripts for resource group General
 Ogre: Creating resources for group General
 Ogre: All done
@@ -884,6 +926,9 @@ Ogre: D3D11: Loading 2D Texture, image name : 'sinbad_clothes.tga' with 9 mip ma
 Ogre: Texture: sinbad_sword.tga: Loading 1 faces(PF_B8G8R8,256x256x1) with 8 generated mipmaps from Image. Internal format is PF_A8B8G8R8,256x256x1.
 Ogre: D3D11: Loading 2D Texture, image name : 'sinbad_sword.tga' with 8 mip map levels
 Ogre: Warning: the mesh 'Sinbad.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
-
+Ogre: Font SdkTrays/Caption using texture size 256x256
+Ogre: Texture: SdkTrays/CaptionTexture: Loading 1 faces(PF_BYTE_LA,256x256x1) with 0 generated mipmaps from Image. Internal format is PF_A8B8G8R8,256x256x1.
+Ogre: Font SdkTrays/Value using texture size 512x256
+Ogre: Texture: SdkTrays/ValueTexture: Loading 1 faces(PF_BYTE_LA,512x256x1) with 0 generated mipmaps from Image. Internal format is PF_A8B8G8R8,512x256x1.
 
 ```

@@ -113,6 +113,11 @@ void OgreApplication::draw() {
     }
 }
 
+bool OgreApplication::frameRenderingQueued(const Ogre::FrameEvent& evt) {
+	mTrayMgr->frameRendered(evt);
+	return true;
+}
+
 void OgreApplication::createCameraAndViewport() {
     // Create the camera
     mCamera = mSceneManager->createCamera("PlayerCam");
@@ -132,12 +137,24 @@ void OgreApplication::createCameraAndViewport() {
     mCamera->setAspectRatio(Ogre::Real(vp->getActualWidth()) / Ogre::Real(vp->getActualHeight()));
 }
 
+void OgreApplication::createDebugMenu() {
+	// Process like ogre/Samples/Common/include/SdkSample.h
+	mSceneManager->addRenderQueueListener(mOverlaySystem);
+	// create a tray interface
+	mTrayMgr = new TrayManager("SampleControls", mRenderWindow, this);
+	// show stats and logo and hide the cursor
+	mTrayMgr->showFrameStats(TL_BOTTOMLEFT);
+	mTrayMgr->showLogo(TL_BOTTOMRIGHT);
+	mTrayMgr->hideCursor();
+}
+
 void OgreApplication::createScene() {
     
     // Process like ApplicationContext::createDummyScene()
     //mWindows[0].render->removeAllViewports();
     mSceneManager = mRoot->createSceneManager("DefaultSceneManager", "DummyScene");
 
+	createDebugMenu();
     createCameraAndViewport();
 
     mShaderGenerator->addSceneManager(mSceneManager);
