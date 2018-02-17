@@ -932,3 +932,314 @@ Ogre: Font SdkTrays/Value using texture size 512x256
 Ogre: Texture: SdkTrays/ValueTexture: Loading 1 faces(PF_BYTE_LA,512x256x1) with 0 generated mipmaps from Image. Internal format is PF_A8B8G8R8,512x256x1.
 
 ```
+
+
+## VS 2017
+
+```bash
+
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\ogre-helloworld.vs.exe'. Symbols loaded.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ntdll.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\kernel32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Program Files\AVAST Software\Avast\x64\aswhooka.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\KernelBase.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\OgreBites_d.dll'. Symbols loaded.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\OgreMain_d.dll'. Symbols loaded.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\user32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\win32u.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\gdi32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\gdi32full.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\msvcp_win.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbase.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\shell32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\msvcrt.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\cfgmgr32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\SHCore.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\rpcrt4.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\combase.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\bcryptprimitives.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\windows.storage.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\advapi32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\sechost.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\shlwapi.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\kernel.appcore.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\powrprof.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\profapi.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\OgreRTShaderSystem_d.dll'. Symbols loaded.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\msvcp140d.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140d.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ucrtbased.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\OgreOverlay_d.dll'. Symbols loaded.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\SDL2.dll'. Symbols loaded.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\imm32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ole32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\oleaut32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\zlib.dll'. Symbols loaded.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\winmm.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\version.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\vcruntime140.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\winmmbase.dll'. Cannot find or open the PDB file.
+Ogre: Creating resource group General
+Ogre: Creating resource group Internal
+Ogre: Creating resource group Autodetect
+Ogre: SceneManagerFactory for type 'DefaultSceneManager' registered.
+Ogre: Registering ResourceManager for type Material
+Ogre: Registering ResourceManager for type Mesh
+Ogre: Registering ResourceManager for type Skeleton
+Ogre: MovableObjectFactory for type 'ParticleSystem' registered.
+Ogre: ArchiveFactory for archive type FileSystem registered.
+Ogre: ArchiveFactory for archive type Zip registered.
+Ogre: ArchiveFactory for archive type EmbeddedZip registered.
+Ogre: DDS codec registering
+Ogre: ETC codec registering
+Ogre: stb_image - v2.15 - public domain JPEG/PNG reader
+Ogre: Supported formats: jpeg,jpg,png,bmp,psd,tga,gif,pic,ppm,pgm,hdr
+Ogre: Registering ResourceManager for type HighLevelGpuProgram
+Ogre: Registering ResourceManager for type Compositor
+Ogre: MovableObjectFactory for type 'Entity' registered.
+Ogre: MovableObjectFactory for type 'Light' registered.
+Ogre: MovableObjectFactory for type 'BillboardSet' registered.
+Ogre: MovableObjectFactory for type 'ManualObject' registered.
+Ogre: MovableObjectFactory for type 'BillboardChain' registered.
+Ogre: MovableObjectFactory for type 'RibbonTrail' registered.
+Ogre: Loading library RenderSystem_GL_d
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Users\aphcoder\Documents\Virtual Machines\sharedfolder\ogre-ios-helloworld\ogre-helloworld.vs\x64\Debug\RenderSystem_GL_d.dll'. Symbols loaded.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\opengl32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\glu32.dll'. Cannot find or open the PDB file.
+Ogre: Installing plugin: GL RenderSystem
+Ogre: OpenGL Rendering Subsystem created.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\uxtheme.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\msctf.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ig7icd64.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\igdusc64.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\wtsapi32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\dwmapi.dll'. Cannot find or open the PDB file.
+The thread 0x29c0 has exited with code 0 (0x0).
+The thread 0x8e8 has exited with code 0 (0x0).
+The thread 0x24c4 has exited with code 0 (0x0).
+The thread 0x2608 has exited with code 0 (0x0).
+Ogre: Plugin successfully installed
+Ogre: *-*-* OGRE Initialising
+Ogre: *-*-* Version 1.10.11 (Xalafu)
+Ogre: OverlayElementFactory for type Panel registered.
+Ogre: OverlayElementFactory for type BorderPanel registered.
+Ogre: OverlayElementFactory for type TextArea registered.
+Ogre: Registering ResourceManager for type Font
+Exception thrown at 0x00007FFD84B44008 in ogre-helloworld.vs.exe: Microsoft C++ exception: Ogre::FileNotFoundException at memory location 0x0000001C12CFE890.
+Exception thrown at 0x00007FFD84B44008 in ogre-helloworld.vs.exe: Microsoft C++ exception: Ogre::FileNotFoundException at memory location 0x0000001C12CFE860.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\WinSxS\amd64_microsoft.windows.common-controls_6595b64144ccf1df_6.0.16299.248_none_15ced204935f55d7\comctl32.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\TextInputFramework.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\CoreUIComponents.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\CoreMessaging.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ntmarta.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\WinTypes.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\clbcatq.dll'. Cannot find or open the PDB file.
+Ogre: CPU Identifier & Features
+Ogre: -------------------------
+Ogre:  *   CPU ID: GenuineIntel: Intel(R) Core(TM) i5-3320M CPU @ 2.60GHz
+Ogre:  *          SSE: yes
+Ogre:  *         SSE2: yes
+Ogre:  *         SSE3: yes
+Ogre:  *        SSE41: yes
+Ogre:  *        SSE42: yes
+Ogre:  *          MMX: yes
+Ogre:  *       MMXEXT: yes
+Ogre:  *        3DNOW: no
+Ogre:  *     3DNOWEXT: no
+Ogre:  *         CMOV: yes
+Ogre:  *          TSC: yes
+Ogre:  *INVARIANT TSC: yes
+Ogre:  *          FPU: yes
+Ogre:  *          PRO: yes
+Ogre:  *           HT: no
+Ogre: -------------------------
+Ogre: *** Starting Win32GL Subsystem ***
+Ogre: Registering ResourceManager for type Texture
+Ogre: GLRenderSystem::_createRenderWindow "OgreApplication", 640x480 windowed  miscParams: FSAA=0 externalWindowHandle=919240 gamma=No vsync=Yes 
+Ogre: Supported WGL extensions: WGL_EXT_depth_float WGL_ARB_buffer_region WGL_ARB_extensions_string WGL_ARB_make_current_read WGL_ARB_pixel_format WGL_ARB_pbuffer WGL_EXT_extensions_string WGL_EXT_swap_control WGL_EXT_swap_control_tear WGL_ARB_multisample WGL_ARB_pixel_format_float WGL_ARB_framebuffer_sRGB WGL_ARB_create_context WGL_ARB_create_context_profile WGL_EXT_pixel_format_packed_float WGL_EXT_create_context_es_profile WGL_EXT_create_context_es2_profile WGL_NV_DX_interop WGL_ARB_create_context_robustness 
+Ogre: GL_VERSION = 4.0.0 - Build 10.18.10.4425
+Ogre: GL_VENDOR = Intel
+Ogre: GL_RENDERER = Intel(R) HD Graphics 4000
+Ogre: GL_EXTENSIONS = GL_EXT_blend_minmax GL_EXT_blend_subtract GL_EXT_blend_color GL_EXT_abgr GL_EXT_texture3D GL_EXT_clip_volume_hint GL_EXT_compiled_vertex_array GL_SGIS_texture_edge_clamp GL_SGIS_generate_mipmap GL_EXT_draw_range_elements GL_SGIS_texture_lod GL_EXT_rescale_normal GL_EXT_packed_pixels GL_EXT_texture_edge_clamp GL_EXT_separate_specular_color GL_ARB_multitexture GL_ARB_map_buffer_alignment GL_ARB_conservative_depth GL_EXT_texture_env_combine GL_EXT_bgra GL_EXT_blend_func_separate GL_EXT_secondary_color GL_EXT_fog_coord GL_EXT_texture_env_add GL_ARB_texture_cube_map GL_ARB_transpose_matrix GL_ARB_internalformat_query GL_ARB_internalformat_query2 GL_ARB_texture_env_add GL_IBM_texture_mirrored_repeat GL_EXT_multi_draw_arrays GL_SUN_multi_draw_arrays GL_NV_blend_square GL_ARB_texture_compression GL_3DFX_texture_compression_FXT1 GL_EXT_texture_filter_anisotropic GL_ARB_texture_border_clamp GL_ARB_point_parameters GL_ARB_texture_env_combine GL_ARB_texture_env_dot3 GL_ARB_texture_env_crossbar GL_EXT_texture_compression_s3tc GL_ARB_shadow GL_ARB_window_pos GL_EXT_shadow_funcs GL_EXT_stencil_wrap GL_ARB_vertex_program GL_EXT_texture_rectangle GL_ARB_fragment_program GL_EXT_stencil_two_side GL_ATI_separate_stencil GL_ARB_vertex_buffer_object GL_EXT_texture_lod_bias GL_ARB_occlusion_query GL_ARB_fragment_shader GL_ARB_shader_objects GL_ARB_shading_language_100 GL_ARB_texture_non_power_of_two GL_ARB_vertex_shader GL_NV_texgen_reflection GL_ARB_point_sprite GL_ARB_fragment_program_shadow GL_EXT_blend_equation_separate GL_ARB_depth_texture GL_ARB_texture_rectangle GL_ARB_draw_buffers GL_ARB_color_buffer_float GL_ARB_half_float_pixel GL_ARB_texture_float GL_ARB_pixel_buffer_object GL_EXT_framebuffer_object GL_ARB_draw_instanced GL_ARB_half_float_vertex GL_ARB_occlusion_query2 GL_EXT_draw_buffers2 GL_WIN_swap_hint GL_EXT_texture_sRGB GL_ARB_multisample GL_EXT_packed_float GL_EXT_texture_shared_exponent GL_ARB_texture_rg GL_ARB_texture_compression_rgtc GL_NV_conditional_render GL_ARB_texture_swizzle GL_EXT_texture_swizzle GL_ARB_texture_gather GL_ARB_sync GL_ARB_framebuffer_sRGB GL_EXT_packed_depth_stencil GL_ARB_depth_buffer_float GL_EXT_transform_feedback GL_ARB_transform_feedback2 GL_ARB_draw_indirect GL_EXT_framebuffer_blit GL_EXT_framebuffer_multisample GL_ARB_framebuffer_object GL_ARB_framebuffer_no_attachments GL_EXT_texture_array GL_EXT_texture_integer GL_ARB_map_buffer_range GL_ARB_texture_buffer_range GL_EXT_texture_buffer GL_EXT_texture_snorm GL_ARB_blend_func_extended GL_INTEL_performance_queries GL_INTEL_performance_query GL_ARB_copy_buffer GL_ARB_sampler_objects GL_NV_primitive_restart GL_ARB_seamless_cube_map GL_ARB_uniform_buffer_object GL_ARB_depth_clamp GL_ARB_vertex_array_bgra GL_ARB_shader_bit_encoding GL_ARB_draw_buffers_blend GL_ARB_geometry_shader4 GL_EXT_geometry_shader4 GL_ARB_texture_query_lod GL_ARB_explicit_attrib_location GL_ARB_draw_elements_base_vertex GL_ARB_instanced_arrays GL_ARB_base_instance GL_ARB_fragment_coord_conventions GL_EXT_gpu_program_parameters GL_ARB_texture_buffer_object_rgb32 GL_ARB_compatibility GL_ARB_texture_rgb10_a2ui GL_ARB_texture_multisample GL_ARB_vertex_type_2_10_10_10_rev GL_ARB_timer_query GL_ARB_tessellation_shader GL_ARB_vertex_array_object GL_ARB_provoking_vertex GL_ARB_sample_shading GL_ARB_texture_cube_map_array GL_EXT_gpu_shader4 GL_ARB_gpu_shader5 GL_ARB_gpu_shader_fp64 GL_ARB_shader_subroutine GL_ARB_transform_feedback3 GL_ARB_get_program_binary GL_ARB_separate_shader_objects GL_ARB_shader_precision GL_ARB_vertex_attrib_64bit GL_ARB_viewport_array GL_ARB_transform_feedback_instanced GL_ARB_compressed_texture_pixel_storage GL_ARB_shader_atomic_counters GL_ARB_shading_language_packing GL_ARB_shading_language_420pack GL_ARB_texture_storage GL_EXT_texture_storage GL_ARB_vertex_attrib_binding GL_ARB_multi_draw_indirect GL_ARB_program_interface_query GL_ARB_texture_storage_multisample GL_ARB_buffer_storage GL_ARB_debug_output GL_KHR_debug GL_ARB_arrays_of_arrays GL_INTEL_map_texture GL_ARB_texture_compression_bptc GL_ARB_ES2_compatibility GL_ARB_ES3_compatibility GL_ARB_robustness GL_EXT_texture_sRGB_decode GL_KHR_blend_equation_advanced GL_EXT_shader_integer_mix GL_ARB_stencil_texturing 
+Ogre: ***************************
+Ogre: *** GL Renderer Started ***
+Ogre: ***************************
+Ogre: Registering ResourceManager for type GpuProgram
+Ogre: GLSL support detected
+Ogre: GL: Using GL_EXT_framebuffer_object for rendering to textures (best)
+Ogre: FBO PF_UNKNOWN depth/stencil support: D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_A8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_R5G6B5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_B5G6R5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_A4R4G4B4 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_A1R5G5B5 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_B8G8R8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_A8R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_A8B8G8R8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_B8G8R8A8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_FLOAT16_RGB depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_FLOAT16_RGBA depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_FLOAT32_RGB depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_FLOAT32_RGBA depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_X8R8G8B8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_X8B8G8R8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_R8G8B8A8 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_SHORT_RGBA depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_R3G3B2 depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: FBO PF_SHORT_RGB depth/stencil support: D0S0 D0S1 D0S4 D0S8 D0S16 D16S0 D16S1 D16S4 D16S8 D16S16 D24S0 D24S1 D24S4 D24S8 D24S16 D32S0 D32S1 D32S4 D32S8 D32S16 Packed-D24S8 
+Ogre: [GL] : Valid FBO targets PF_UNKNOWN PF_A8 PF_R5G6B5 PF_B5G6R5 PF_A4R4G4B4 PF_A1R5G5B5 PF_R8G8B8 PF_B8G8R8 PF_A8R8G8B8 PF_A8B8G8R8 PF_B8G8R8A8 PF_FLOAT16_RGB PF_FLOAT16_RGBA PF_FLOAT32_RGB PF_FLOAT32_RGBA PF_X8R8G8B8 PF_X8B8G8R8 PF_R8G8B8A8 PF_SHORT_RGBA PF_R3G3B2 PF_SHORT_RGB 
+Ogre: RenderSystem capabilities
+Ogre: -------------------------
+Ogre: RenderSystem Name: OpenGL Rendering Subsystem
+Ogre: GPU Vendor: intel
+Ogre: Device Name: Intel(R) HD Graphics 4000
+Ogre: Driver Version: 4.0.0.0
+Ogre:  * Fixed function pipeline: yes
+Ogre:  * Anisotropic texture filtering: yes
+Ogre:  * Cube mapping: yes
+Ogre:  * Hardware stencil buffer: yes
+Ogre:    - Stencil depth: 8
+Ogre:    - Two sided stencil support: yes
+Ogre:    - Wrap stencil values: yes
+Ogre:  * 32-bit index buffers: yes
+Ogre:  * Vertex programs: yes
+Ogre:  * Number of floating-point constants for vertex programs: 256
+Ogre:  * Number of integer constants for vertex programs: 0
+Ogre:  * Number of boolean constants for vertex programs: 0
+Ogre:  * Fragment programs: yes
+Ogre:  * Number of floating-point constants for fragment programs: 256
+Ogre:  * Number of integer constants for fragment programs: 0
+Ogre:  * Number of boolean constants for fragment programs: 0
+Ogre:  * Geometry programs: yes
+Ogre:  * Number of floating-point constants for geometry programs: 4096
+Ogre:  * Number of integer constants for geometry programs: 0
+Ogre:  * Number of boolean constants for geometry programs: 0
+Ogre:  * Tessellation Hull programs: no
+Ogre:  * Number of floating-point constants for tessellation hull programs: 52685
+Ogre:  * Number of integer constants for tessellation hull programs: 52685
+Ogre:  * Number of boolean constants for tessellation hull programs: 52685
+Ogre:  * Tessellation Domain programs: no
+Ogre:  * Number of floating-point constants for tessellation domain programs: 52685
+Ogre:  * Number of integer constants for tessellation domain programs: 52685
+Ogre:  * Number of boolean constants for tessellation domain programs: 52685
+Ogre:  * Compute programs: no
+Ogre:  * Number of floating-point constants for compute programs: 52685
+Ogre:  * Number of integer constants for compute programs: 52685
+Ogre:  * Number of boolean constants for compute programs: 52685
+Ogre:  * Supported Shader Profiles: arbfp1 arbvp1 glsl glsl100 glsl110 glsl120
+Ogre:  * Texture Compression: yes
+Ogre:    - DXT: yes
+Ogre:    - VTC: no
+Ogre:    - PVRTC: no
+Ogre:    - ATC: no
+Ogre:    - ETC1: no
+Ogre:    - ETC2: no
+Ogre:    - BC4/BC5: no
+Ogre:    - BC6H/BC7: no
+Ogre:    - ASTC: no
+Ogre:    - Mipmaps for compressed formats: yes
+Ogre:  * Hardware Occlusion Query: yes
+Ogre:  * User clip planes: yes
+Ogre:  * VET_UBYTE4 vertex element type: yes
+Ogre:  * Infinite far plane projection: yes
+Ogre:  * Hardware render-to-texture: yes
+Ogre:  * Floating point textures: yes
+Ogre:  * Non-power-of-two textures: yes
+Ogre:  * 1d textures: yes
+Ogre:  * Volume textures: yes
+Ogre:  * Multiple Render Targets: 8
+Ogre:    - With different bit depths: yes
+Ogre:  * Point Sprites: yes
+Ogre:  * Hardware Gamma: yes
+Ogre:  * Extended point parameters: yes
+Ogre:  * Max Point Size: 255
+Ogre:  * Vertex texture fetch: yes
+Ogre:  * Number of texture units: 16
+Ogre:  * Number of vertex attributes: 16
+Ogre:  * Stencil buffer depth: 8
+Ogre:  * Number of vertex blend matrices: 0
+Ogre:    - Max vertex textures: 16
+Ogre:    - Vertex textures shared: yes
+Ogre:  * Render to Vertex Buffer : no
+Ogre:  * Hardware Atomic Counters: no
+Ogre:  * PBuffer support: yes
+Ogre:  * Vertex Array Objects: no
+Ogre:  * Separate shader objects: no
+Ogre:  * GLSL SSO redeclare interface block: no
+Ogre:  * Debugging/ profiling events: no
+Ogre:  * Map buffer storage: yes
+Ogre: DefaultWorkQueue('Root') initialising on thread main.
+Ogre: Particle Renderer Type 'billboard' registered
+Ogre: Added resource location 'Media' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/models' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/packs' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/packs/Sinbad.zip' of type 'Zip' to resource group 'General'
+Ogre: Added resource location 'Media/packs/SdkTrays.zip' of type 'Zip' to resource group 'General'
+Ogre: Added resource location 'Media/materials/programs/GLSL120' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/materials/programs/GLSL' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/RTShaderLib/materials' of type 'FileSystem' to resource group 'General'
+Ogre: Added resource location 'Media/RTShaderLib/GLSL' of type 'FileSystem' to resource group 'General'
+Ogre: Parsing scripts for resource group Autodetect
+Ogre: Finished parsing scripts for resource group Autodetect
+Ogre: Creating resources for group Autodetect
+Ogre: All done
+Ogre: Parsing scripts for resource group General
+Ogre: Parsing script Sinbad.material
+Ogre: Parsing script SdkTrays.material
+Ogre: Parsing script DualQuaternionSkinning_Shadow.material
+Ogre: Parsing script HardwareSkinningShadow.material
+Ogre: Parsing script RTShaderSystem.material
+Ogre: Parsing script TriplanarTexturing.material
+Ogre: Parsing script SdkTrays.fontdef
+Ogre: Parsing script SdkTrays.overlay
+Ogre: Bad element attribute line: '# you can offset the image to change the cursor "hotspot"' for element SdkTrays/Cursor in overlay 
+Ogre: Texture: sdk_cursor.png: Loading 1 faces(PF_A8B8G8R8,32x32x1) with 5 hardware generated mipmaps from Image. Internal format is PF_A8B8G8R8,32x32x1.
+Ogre: Texture: sdk_tray.png: Loading 1 faces(PF_A8B8G8R8,64x64x1) with 6 hardware generated mipmaps from Image. Internal format is PF_A8B8G8R8,64x64x1.
+Ogre: Texture: sdk_button_up.png: Loading 1 faces(PF_A8B8G8R8,128x32x1) with 7 hardware generated mipmaps from Image. Internal format is PF_A8B8G8R8,128x32x1.
+Ogre: Texture: sdk_text_box.png: Loading 1 faces(PF_A8B8G8R8,32x32x1) with 5 hardware generated mipmaps from Image. Internal format is PF_A8B8G8R8,32x32x1.
+Ogre: Texture: sdk_mini_tray.png: Loading 1 faces(PF_A8B8G8R8,32x32x1) with 5 hardware generated mipmaps from Image. Internal format is PF_A8B8G8R8,32x32x1.
+Ogre: Texture: sdk_track.png: Loading 1 faces(PF_A8B8G8R8,16x32x1) with 5 hardware generated mipmaps from Image. Internal format is PF_A8B8G8R8,16x32x1.
+Ogre: Texture: sdk_handle.png: Loading 1 faces(PF_A8B8G8R8,16x16x1) with 4 hardware generated mipmaps from Image. Internal format is PF_A8B8G8R8,16x16x1.
+Ogre: Texture: sdk_mini_text_box.png: Loading 1 faces(PF_A8B8G8R8,32x32x1) with 5 hardware generated mipmaps from Image. Internal format is PF_A8B8G8R8,32x32x1.
+Ogre: Texture: sdk_label.png: Loading 1 faces(PF_A8B8G8R8,32x32x1) with 5 hardware generated mipmaps from Image. Internal format is PF_A8B8G8R8,32x32x1.
+Ogre: Texture: sdk_separator.png: Loading 1 faces(PF_A8B8G8R8,64x16x1) with 6 hardware generated mipmaps from Image. Internal format is PF_A8B8G8R8,64x16x1.
+Ogre: Texture: sdk_logo.png: Loading 1 faces(PF_A8B8G8R8,128x64x1) with 7 hardware generated mipmaps from Image. Internal format is PF_A8B8G8R8,128x64x1.
+Ogre: Texture: sdk_shade.png: Loading 1 faces(PF_A8B8G8R8,64x48x1) with 6 hardware generated mipmaps from Image. Internal format is PF_A8B8G8R8,64x48x1.
+Ogre: Texture: sdk_frame.png: Loading 1 faces(PF_A8B8G8R8,32x32x1) with 5 hardware generated mipmaps from Image. Internal format is PF_A8B8G8R8,32x32x1.
+Ogre: Texture: sdk_mini_text_box_over.png: Loading 1 faces(PF_A8B8G8R8,32x32x1) with 5 hardware generated mipmaps from Image. Internal format is PF_A8B8G8R8,32x32x1.
+Ogre: Texture: sdk_pulse.png: Loading 1 faces(PF_B8G8R8,8x1x1) with 3 hardware generated mipmaps from Image. Internal format is PF_B8G8R8,8x1x1.
+Ogre: Finished parsing scripts for resource group General
+Ogre: Creating resources for group General
+Ogre: All done
+Ogre: Parsing scripts for resource group Internal
+Ogre: Finished parsing scripts for resource group Internal
+Ogre: Creating resources for group Internal
+Ogre: All done
+Ogre: Mesh: Loading Sinbad.mesh.
+Ogre: Skeleton: Loading Sinbad.skeleton
+Ogre: Texture: sinbad_body.tga: Loading 1 faces(PF_B8G8R8,512x512x1) with 9 hardware generated mipmaps from Image. Internal format is PF_B8G8R8,512x512x1.
+Ogre: Texture: sinbad_clothes.tga: Loading 1 faces(PF_B8G8R8,512x512x1) with 9 hardware generated mipmaps from Image. Internal format is PF_B8G8R8,512x512x1.
+Ogre: Texture: sinbad_sword.tga: Loading 1 faces(PF_B8G8R8,256x256x1) with 8 hardware generated mipmaps from Image. Internal format is PF_B8G8R8,256x256x1.
+Ogre: Warning: the mesh 'Sinbad.mesh' includes vertices with more than 4 bone assignments. The lowest weighted assignments beyond this limit have been removed, so your animation may look slightly different. To eliminate this, reduce the number of bone assignments per vertex on your mesh to 4.
+Ogre: Texture: Warning: Loading 1 faces(PF_R5G6B5,8x8x1) with 3 hardware generated mipmaps from Image. Internal format is PF_R5G6B5,8x8x1.
+Ogre: Font SdkTrays/Caption using texture size 256x256
+Ogre: Texture: SdkTrays/CaptionTexture: Loading 1 faces(PF_BYTE_LA,256x256x1) Internal format is PF_BYTE_LA,256x256x1.
+Ogre: Font SdkTrays/Value using texture size 512x256
+Ogre: Texture: SdkTrays/ValueTexture: Loading 1 faces(PF_BYTE_LA,512x256x1) Internal format is PF_BYTE_LA,512x256x1.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\dxgi.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\d3d11.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ResourcePolicyClient.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Unloaded 'C:\Windows\System32\ResourcePolicyClient.dll'
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\igd10iumd64.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\bcrypt.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ncrypt.dll'. Cannot find or open the PDB file.
+'ogre-helloworld.vs.exe' (Win32): Loaded 'C:\Windows\System32\ntasn1.dll'. Cannot find or open the PDB file.
+The thread 0xc24 has exited with code 0 (0x0).
+The thread 0x211c has exited with code 0 (0x0).
+The thread 0x1384 has exited with code 0 (0x0).
+The thread 0xcd0 has exited with code 0 (0x0).
+The program '[9376] ogre-helloworld.vs.exe' has exited with code 0 (0x0).
+
+```
+

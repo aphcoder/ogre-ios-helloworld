@@ -49,7 +49,8 @@ void OgreApplication::setup() {
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE || OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
     mRoot->setRenderSystem(mRoot->getRenderSystemByName("OpenGL ES 2.x Rendering Subsystem"));
 #else
-	mRoot->setRenderSystem(mRoot->getRenderSystemByName("Direct3D11 Rendering Subsystem"));
+	//mRoot->setRenderSystem(mRoot->getRenderSystemByName("Direct3D11 Rendering Subsystem"));
+    mRoot->setRenderSystem(mRoot->getRenderSystemByName("OpenGL Rendering Subsystem"));
 #endif
     //Process like: OgreBites::ApplicationContext::setup();
     mRoot->initialise(false);
