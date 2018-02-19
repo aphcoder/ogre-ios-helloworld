@@ -1,13 +1,10 @@
 #ifndef __OgreApplication_h__
 #define __OgreApplication_h__
 
-
-
 #include <OgreRoot.h>
 #include <OgreCamera.h>
 #include <OgreSceneManager.h>
 #include <OgreRenderWindow.h>
-#include <OgreStaticPluginLoader.h>
 #include <OgreApplicationContext.h>
 #include <OgreInput.h>
 #include <OgreTrays.h>
@@ -25,7 +22,7 @@ private:
     unsigned int mHeight;
     
 protected:
-    Ogre::SceneManager *mSceneManager;
+    Ogre::SceneManager *mSceneMgr;
     Ogre::RenderWindow *mRenderWindow;
     Ogre::Camera *mCamera;
     Ogre::Viewport *mViewport;
@@ -49,6 +46,9 @@ public:
     void createScene();
 
 
+    bool keyPressed(const KeyboardEvent& evt);
+    bool mousePressed(const MouseButtonEvent& evt);
+    bool touchPressed(const TouchFingerEvent& evt);
 
 };
 

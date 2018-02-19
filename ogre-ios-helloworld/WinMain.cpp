@@ -13,7 +13,8 @@ int main(int argc, char *argv[]) {
 		app.getRoot()->startRendering();
 		app.closeApp();
 	} catch (Ogre::Exception& e) {
-
+        
+        return 1;
 	}
 	return 0;
 }

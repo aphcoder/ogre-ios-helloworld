@@ -20,7 +20,7 @@ bool fileExists(std::string filepath) {
 
 OgreApplication::OgreApplication(): OgreBites::ApplicationContext("OgreApplication") {
     mRoot = 0;
-    mSceneManager = 0;
+    mSceneMgr = 0;
     mRenderWindow = 0;
     mCamera = 0;
     mViewport = 0;
@@ -46,6 +46,7 @@ OgreApplication::~OgreApplication(void) {
 }
 
 void OgreApplication::setup() {
+
 #if OGRE_PLATFORM == OGRE_PLATFORM_APPLE || OGRE_PLATFORM == OGRE_PLATFORM_APPLE_IOS
     mRoot->setRenderSystem(mRoot->getRenderSystemByName("OpenGL ES 2.x Rendering Subsystem"));
 #else
@@ -76,6 +77,9 @@ void OgreApplication::setup() {
     
     // adds context as listener to process context-level (above the sample level) events
     mRoot->addFrameListener(this);
+
+    // InputListener initialization
+    addInputListener(this);
 
 	createScene();
 }
@@ -121,7 +125,7 @@ bool OgreApplication::frameRenderingQueued(const Ogre::FrameEvent& evt) {
 
 void OgreApplication::createCameraAndViewport() {
     // Create the camera
-    mCamera = mSceneManager->createCamera("PlayerCam");
+    mCamera = mSceneMgr->createCamera("PlayerCam");
     
     // Position it at 500 in Z direction
     mCamera->setPosition(Ogre::Vector3(0,0,20));
@@ -140,7 +144,7 @@ void OgreApplication::createCameraAndViewport() {
 
 void OgreApplication::createDebugMenu() {
 	// Process like ogre/Samples/Common/include/SdkSample.h
-	mSceneManager->addRenderQueueListener(mOverlaySystem);
+	mSceneMgr->addRenderQueueListener(mOverlaySystem);
 	// create a tray interface
 	mTrayMgr = new TrayManager("SampleControls", mRenderWindow, this);
 	// show stats and logo and hide the cursor
@@ -153,25 +157,48 @@ void OgreApplication::createScene() {
     
     // Process like ApplicationContext::createDummyScene()
     //mWindows[0].render->removeAllViewports();
-    mSceneManager = mRoot->createSceneManager("DefaultSceneManager", "DummyScene");
+    mSceneMgr = mRoot->createSceneManager("DefaultSceneManager", "DummyScene");
 
 	createDebugMenu();
     createCameraAndViewport();
 
-    mShaderGenerator->addSceneManager(mSceneManager);
+    mShaderGenerator->addSceneManager(mSceneMgr);
 
     
     // Add entity
     // Sinbad mesh and materials are in packs/Sinbad.zip
-    Ogre::Entity* ogreHead = mSceneManager->createEntity("Sinbad", "Sinbad.mesh");
-    Ogre::SceneNode* rootNode = mSceneManager->getRootSceneNode();
+    Ogre::Entity* ogreHead = mSceneMgr->createEntity("Sinbad", "Sinbad.mesh");
+    Ogre::SceneNode* rootNode = mSceneMgr->getRootSceneNode();
     Ogre::SceneNode* headNode = rootNode->createChildSceneNode();
     headNode->attachObject(ogreHead);
     
     // Set ambient light
-    mSceneManager->setAmbientLight(Ogre::ColourValue(0.5, 0.5, 0.5));
+    mSceneMgr->setAmbientLight(Ogre::ColourValue(0.5, 0.5, 0.5));
     
     // Create a light
-    Ogre::Light *light = mSceneManager->createLight("MainLight");
+    Ogre::Light *light = mSceneMgr->createLight("MainLight");
     light->setPosition(Vector3(20, 80, 50));
+}
+
+
+// https://github.com/OGRECave/ogre/blob/master/Samples/Tutorials/BasicTutorial2.cpp
+bool OgreApplication::keyPressed(const KeyboardEvent& evt) { 
+    if (evt.keysym.sym == SDLK_ESCAPE) {
+        getRoot()->queueEndRendering();
+    }
+    return true;
+}
+
+bool OgreApplication::mousePressed(const MouseButtonEvent& evt) {
+    if (evt.button == BUTTON_LEFT) {
+        int mouseX = evt.x;
+        int mouseY = evt.y;
+    }
+    return true; 
+}
+
+bool OgreApplication::touchPressed(const TouchFingerEvent& evt) {
+    int touchX = evt.x;
+    int touchY = evt.y;
+    return true;
 }
